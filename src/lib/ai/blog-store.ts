@@ -1,29 +1,16 @@
-import { readFileSync, writeFileSync } from 'fs'
-import { join } from 'path'
 import type { BlogPost } from '@/types'
+import postsData from '../data/blog-posts.json'
 
-// Path is resolved relative to the project root at runtime
-const DATA_FILE = join(process.cwd(), 'src', 'lib', 'data', 'blog-posts.json')
-
-function readPosts(): BlogPost[] {
-  try {
-    const raw = readFileSync(DATA_FILE, 'utf-8')
-    return JSON.parse(raw) as BlogPost[]
-  } catch {
-    return []
-  }
-}
-
-function writePosts(posts: BlogPost[]): void {
-  writeFileSync(DATA_FILE, JSON.stringify(posts, null, 2), 'utf-8')
-}
+// In-memory store seeded from static JSON at module load time.
+// New posts added via addPost() live only for the lifetime of the server process,
+// which is acceptable for a serverless/demo deployment where the filesystem is read-only.
+let posts: BlogPost[] = postsData as BlogPost[]
 
 /**
  * Returns all blog posts, sorted by publishedAt descending (newest first).
  */
 export function getAllPosts(): BlogPost[] {
-  const posts = readPosts()
-  return posts.sort(
+  return [...posts].sort(
     (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
   )
 }
@@ -32,19 +19,17 @@ export function getAllPosts(): BlogPost[] {
  * Returns a single post by its slug, or undefined if not found.
  */
 export function getPostBySlug(slug: string): BlogPost | undefined {
-  return readPosts().find((p) => p.slug === slug)
+  return posts.find((p) => p.slug === slug)
 }
 
 /**
- * Adds a new post to the store. Throws if a post with the same slug already exists.
+ * Adds a new post to the in-memory store. Throws if a post with the same slug already exists.
  */
 export function addPost(post: BlogPost): void {
-  const posts = readPosts()
   if (posts.some((p) => p.slug === post.slug)) {
     throw new Error(`A post with slug "${post.slug}" already exists.`)
   }
-  posts.unshift(post) // newest first in the file
-  writePosts(posts)
+  posts = [post, ...posts]
 }
 
 /**
@@ -52,7 +37,6 @@ export function addPost(post: BlogPost): void {
  * Falls back to the most recently published post if the store is empty.
  */
 export function getFeaturedPost(): BlogPost | undefined {
-  const posts = readPosts()
   if (posts.length === 0) return undefined
   return posts.reduce((top, p) => (p.viewCount > top.viewCount ? p : top), posts[0])
 }
@@ -65,9 +49,9 @@ export function getRecentPosts(
   limit: number = 10,
   category?: BlogPost['category']
 ): BlogPost[] {
-  let posts = getAllPosts()
+  let result = getAllPosts()
   if (category) {
-    posts = posts.filter((p) => p.category === category)
+    result = result.filter((p) => p.category === category)
   }
-  return posts.slice(0, limit)
+  return result.slice(0, limit)
 }
