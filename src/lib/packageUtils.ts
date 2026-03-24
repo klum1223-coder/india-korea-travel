@@ -23,21 +23,8 @@ export function getPackageShortName(pkg: TourPackage): string {
  * Extracts the starting price for a given pax count from either pricing shape.
  */
 export function getStartingPricePax20(pkg: TourPackage): number | null {
-  const pricing = pkg.pricing;
-  if (Array.isArray(pricing)) {
-    const prices = pricing.map((t) => t.pax20).filter((p): p is number => typeof p === "number");
-    return prices.length > 0 ? Math.min(...prices) : null;
-  }
-  const p = pricing as Record<string, unknown>;
-  const nums: number[] = [];
-  for (const key of Object.keys(p)) {
-    const val = p[key];
-    if (typeof val === "object" && val !== null && "pax20" in val) {
-      const pax20 = (val as { pax20: number }).pax20;
-      if (typeof pax20 === "number") nums.push(pax20);
-    }
-  }
-  return nums.length > 0 ? Math.min(...nums) : null;
+  const prices = pkg.pricing.map((t) => t.pax20).filter((p): p is number => typeof p === "number");
+  return prices.length > 0 ? Math.min(...prices) : null;
 }
 
 /**
