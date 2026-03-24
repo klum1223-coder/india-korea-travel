@@ -1,6 +1,7 @@
 [
   {
     "slug": "5n6d-seoul-busan",
+    "name": "5N6D Seoul & Busan",
     "duration": "5 Nights / 6 Days",
     "cities": ["Seoul", "Busan"],
     "tagline": "The perfect introduction to Korea's education, culture, and innovation",
@@ -124,6 +125,7 @@
   },
   {
     "slug": "8d7n-stem-industry",
+    "name": "8D7N STEM & Industry",
     "duration": "8 Days / 7 Nights",
     "cities": ["Seoul", "Daejeon", "Ulsan", "Busan"],
     "tagline": "Deep dive into Korea's technological powerhouse",
@@ -231,21 +233,24 @@
         "learningOutcome": "Reflection & personal growth"
       }
     ],
-    "pricing": {
-      "fourStarKTX": {
+    "pricing": [
+      {
+        "hotelClass": "4-Star (KTX)",
         "pax15": 1920,
         "pax20": 1670,
         "pax25": 1570,
-        "pax30": 1510
+        "pax30": 1510,
+        "sglSupplement": 480
       },
-      "fourStarCoach": {
+      {
+        "hotelClass": "4-Star (Coach)",
         "pax15": 1820,
         "pax20": 1580,
         "pax25": 1500,
-        "pax30": 1450
-      },
-      "sglSupplement": 480
-    },
+        "pax30": 1450,
+        "sglSupplement": 480
+      }
+    ],
     "inclusions": [
       "7 nights accommodation (Twin sharing)",
       "7 breakfast + 6 lunch + 7 dinner",
@@ -264,6 +269,7 @@
   },
   {
     "slug": "9d8n-comprehensive",
+    "name": "9D8N Comprehensive Korea",
     "duration": "9 Days / 8 Nights",
     "cities": ["Seoul", "Busan", "Nami Island", "Suwon"],
     "tagline": "The complete Korea experience — education, culture, nature, and adventure",
@@ -384,21 +390,24 @@
         "learningOutcome": "Reflection & personal growth"
       }
     ],
-    "pricing": {
-      "fourStarKTX": {
+    "pricing": [
+      {
+        "hotelClass": "4-Star (KTX)",
         "pax15": 2040,
         "pax20": 1870,
         "pax25": 1770,
-        "pax30": 1710
+        "pax30": 1710,
+        "sglSupplement": 500
       },
-      "fourStarCoach": {
+      {
+        "hotelClass": "4-Star (Coach)",
         "pax15": 1985,
         "pax20": 1810,
         "pax25": 1710,
-        "pax30": 1650
-      },
-      "sglSupplement": 500
-    },
+        "pax30": 1650,
+        "sglSupplement": 500
+      }
+    ],
     "inclusions": [
       "8 nights accommodation (Twin sharing)",
       "8 breakfast + 7 lunch + 8 dinner",
@@ -417,6 +426,7 @@
   },
   {
     "slug": "10d9n-korea-jeju",
+    "name": "10D9N Korea & Jeju",
     "duration": "10 Days / 9 Nights",
     "cities": ["Seoul", "Busan", "Jeju"],
     "tagline": "From the DMZ to volcanic Jeju — every face of Korea in one journey",
@@ -541,15 +551,16 @@
         "learningOutcome": "Reflection & personal growth"
       }
     ],
-    "pricing": {
-      "fourStar": {
+    "pricing": [
+      {
+        "hotelClass": "4-Star",
         "pax15": 2500,
         "pax20": 2300,
         "pax25": 2150,
-        "pax30": 2050
-      },
-      "sglSupplement": 550
-    },
+        "pax30": 2050,
+        "sglSupplement": 550
+      }
+    ],
     "inclusions": [
       "9 nights accommodation (Twin sharing)",
       "9 breakfast + 8 lunch + 9 dinner",
