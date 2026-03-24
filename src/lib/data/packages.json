@@ -1,0 +1,570 @@
+[
+  {
+    "slug": "5n6d-seoul-busan",
+    "duration": "5 Nights / 6 Days",
+    "cities": ["Seoul", "Busan"],
+    "tagline": "The perfect introduction to Korea's education, culture, and innovation",
+    "badge": null,
+    "highlights": [
+      "Gyeongbok Palace & Guard Ceremony",
+      "DMZ Tour",
+      "Yonsei University Visit",
+      "KTX Bullet Train",
+      "Haedong Yonggungsa Temple",
+      "Gamcheon Culture Village",
+      "Haeundae Blue Line Park",
+      "KMOU University Visit"
+    ],
+    "optionalPrograms": [
+      "Hanbok Experience ($20/pax)",
+      "Gimbap Making Class",
+      "K-pop Dance + MV Shooting",
+      "N Seoul Tower Observatory ($20/pax)"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "theme": "Arrival & Adaptation",
+        "activities": [
+          "ICN Airport arrival",
+          "Transfer to Seoul",
+          "Indian dinner at Taj Palace"
+        ],
+        "learningOutcome": "International travel confidence"
+      },
+      {
+        "day": 2,
+        "theme": "Korean History & Culture",
+        "activities": [
+          "Gyeongbok Palace",
+          "Bukchon Hanok Village",
+          "Insadong Antique Street",
+          "Cheonggyecheon Stream"
+        ],
+        "learningOutcome": "Asian history comparison, Heritage understanding"
+      },
+      {
+        "day": 3,
+        "theme": "Global Politics & Academia",
+        "activities": [
+          "DMZ Tour (Imjingak, 3rd Tunnel, Dora Observatory)",
+          "Yonsei University Visit",
+          "Hongdae Street",
+          "N Seoul Tower"
+        ],
+        "learningOutcome": "International relations, Higher education motivation"
+      },
+      {
+        "day": 4,
+        "theme": "Technology & Regional Development",
+        "activities": [
+          "KTX to Busan",
+          "Haedong Yonggungsa Temple",
+          "Gamcheon Culture Village",
+          "BIFF Square & Jagalchi Market",
+          "Oryukdo Skywalk"
+        ],
+        "learningOutcome": "Infrastructure exposure, Urban development"
+      },
+      {
+        "day": 5,
+        "theme": "Future Industry & Ocean",
+        "activities": [
+          "Nurimaru APEC House",
+          "Blue Line Park Train",
+          "Haeundae Beach",
+          "KMOU University Visit"
+        ],
+        "learningOutcome": "Future career awareness, Global trade"
+      },
+      {
+        "day": 6,
+        "theme": "Departure",
+        "activities": [
+          "Breakfast",
+          "Transfer to PUS Airport"
+        ],
+        "learningOutcome": "Reflection & personal growth"
+      }
+    ],
+    "pricing": [
+      {
+        "hotelClass": "3-Star",
+        "pax15": 1325,
+        "pax20": 1220,
+        "pax30": 1150,
+        "sglSupplement": 265
+      },
+      {
+        "hotelClass": "4-Star",
+        "pax15": 1440,
+        "pax20": 1330,
+        "pax30": 1265,
+        "sglSupplement": 360
+      }
+    ],
+    "inclusions": [
+      "5 nights accommodation (Twin sharing)",
+      "Buffet breakfast + 5 Indian cuisine meals",
+      "Full tour & transfers with admission fees (10hr/day)",
+      "English-speaking guide (10hr/day)",
+      "1 bottle mineral water/day",
+      "KTX 2nd Class (Seoul→Busan)"
+    ],
+    "exclusions": [
+      "Personal expenses",
+      "Tipping ($5/person/day)",
+      "International airfare",
+      "High season surcharge"
+    ],
+    "hotels": {
+      "threeStar": "Boutique 9 Hotel Dongdaemun or similar",
+      "fourStar": "Mercure Ambassador Hongdae or similar"
+    }
+  },
+  {
+    "slug": "8d7n-stem-industry",
+    "duration": "8 Days / 7 Nights",
+    "cities": ["Seoul", "Daejeon", "Ulsan", "Busan"],
+    "tagline": "Deep dive into Korea's technological powerhouse",
+    "badge": "MOST POPULAR",
+    "highlights": [
+      "KARI Aerospace Research",
+      "KAIST Campus",
+      "Robot Engineering Center",
+      "Hyundai Motor Ulsan Plant",
+      "Hyundai Heavy Industries",
+      "Kori Nuclear Power Plant",
+      "Samsung Innovation Museum",
+      "Everland Theme Park",
+      "K-pop Dance or Taekwondo",
+      "Nanta or Painters HERO Show"
+    ],
+    "optionalPrograms": [],
+    "itinerary": [
+      {
+        "day": 1,
+        "theme": "Arrival & Adaptation",
+        "activities": [
+          "ICN Airport arrival",
+          "Transfer to Seoul",
+          "Hotel check-in"
+        ],
+        "learningOutcome": "International travel confidence"
+      },
+      {
+        "day": 2,
+        "theme": "Aerospace & Robotics",
+        "activities": [
+          "KARI Aerospace Research Institute",
+          "KAIST Campus Tour",
+          "Robot Engineering Center",
+          "Transfer to Ulsan"
+        ],
+        "learningOutcome": "Advanced technology exposure, Aerospace innovation"
+      },
+      {
+        "day": 3,
+        "theme": "Industrial Excellence",
+        "activities": [
+          "Hyundai Motor Ulsan Plant Tour",
+          "Hyundai Heavy Industries",
+          "Kori Nuclear Power Plant",
+          "Transfer to Busan",
+          "BIFF Square & Kukje Market"
+        ],
+        "learningOutcome": "Manufacturing prowess, Energy infrastructure"
+      },
+      {
+        "day": 4,
+        "theme": "Education & Culture",
+        "activities": [
+          "Busan National University Visit",
+          "Museum DAH",
+          "Oryukdo Skywalk"
+        ],
+        "learningOutcome": "Academic excellence, Cultural appreciation"
+      },
+      {
+        "day": 5,
+        "theme": "Capital & Heritage",
+        "activities": [
+          "KTX to Seoul",
+          "Seoul National University Tour",
+          "Itaewon Mosque",
+          "Gyeongbok Palace",
+          "Bukchon Hanok Village",
+          "Insadong Antique Street",
+          "Myeongdong Shopping"
+        ],
+        "learningOutcome": "Higher education opportunities, Cultural diversity"
+      },
+      {
+        "day": 6,
+        "theme": "Arts & Innovation",
+        "activities": [
+          "K-pop Dance Class or Taekwondo Training",
+          "Dongdaemun Design Plaza (DDP)",
+          "Dongdaemun Market",
+          "Nanta or Painters HERO Show"
+        ],
+        "learningOutcome": "Contemporary Korean culture, Creative industries"
+      },
+      {
+        "day": 7,
+        "theme": "Technology & Lifestyle",
+        "activities": [
+          "Samsung Innovation Museum",
+          "Everland Theme Park",
+          "Kimchi Making Class",
+          "Hanbok Photo Session"
+        ],
+        "learningOutcome": "Tech industry insights, Traditional culture preservation"
+      },
+      {
+        "day": 8,
+        "theme": "Departure",
+        "activities": [
+          "Breakfast",
+          "Transfer to ICN Airport"
+        ],
+        "learningOutcome": "Reflection & personal growth"
+      }
+    ],
+    "pricing": {
+      "fourStarKTX": {
+        "pax15": 1920,
+        "pax20": 1670,
+        "pax25": 1570,
+        "pax30": 1510
+      },
+      "fourStarCoach": {
+        "pax15": 1820,
+        "pax20": 1580,
+        "pax25": 1500,
+        "pax30": 1450
+      },
+      "sglSupplement": 480
+    },
+    "inclusions": [
+      "7 nights accommodation (Twin sharing)",
+      "7 breakfast + 6 lunch + 7 dinner",
+      "Meal Budget: Lunch $20/meal, Dinner $30/meal",
+      "Full tour & transfers with admission fees",
+      "English-speaking guide",
+      "KTX or Coach transport"
+    ],
+    "exclusions": [
+      "Tipping ($5/person/day)",
+      "International airfare"
+    ],
+    "hotels": {
+      "fourStar": "Selected 4-star hotels in each city"
+    }
+  },
+  {
+    "slug": "9d8n-comprehensive",
+    "duration": "9 Days / 8 Nights",
+    "cities": ["Seoul", "Busan", "Nami Island", "Suwon"],
+    "tagline": "The complete Korea experience — education, culture, nature, and adventure",
+    "badge": "PREMIUM",
+    "highlights": [
+      "KARI Aerospace Research",
+      "KAIST Campus",
+      "Robot Engineering Center",
+      "Hyundai Motor Ulsan Plant",
+      "Hyundai Heavy Industries",
+      "Kori Nuclear Power Plant",
+      "Samsung Innovation Museum",
+      "Everland Theme Park",
+      "Nami Island",
+      "Gangchon Rail Bike",
+      "K-pop Dance or Taekwondo",
+      "Nanta or Painters HERO Show"
+    ],
+    "optionalPrograms": [],
+    "itinerary": [
+      {
+        "day": 1,
+        "theme": "Arrival & Adaptation",
+        "activities": [
+          "ICN Airport arrival",
+          "Transfer to Seoul",
+          "Hotel check-in"
+        ],
+        "learningOutcome": "International travel confidence"
+      },
+      {
+        "day": 2,
+        "theme": "Aerospace & Robotics",
+        "activities": [
+          "KARI Aerospace Research Institute",
+          "KAIST Campus Tour",
+          "Robot Engineering Center",
+          "Transfer to Ulsan"
+        ],
+        "learningOutcome": "Advanced technology exposure, Aerospace innovation"
+      },
+      {
+        "day": 3,
+        "theme": "Industrial Excellence",
+        "activities": [
+          "Hyundai Motor Ulsan Plant Tour",
+          "Hyundai Heavy Industries",
+          "Kori Nuclear Power Plant",
+          "Transfer to Busan",
+          "BIFF Square & Kukje Market"
+        ],
+        "learningOutcome": "Manufacturing prowess, Energy infrastructure"
+      },
+      {
+        "day": 4,
+        "theme": "Coastal Exploration",
+        "activities": [
+          "Busan National University Visit",
+          "Museum DAH",
+          "Oryukdo Skywalk",
+          "Haeundae Beach"
+        ],
+        "learningOutcome": "Academic excellence, Coastal beauty"
+      },
+      {
+        "day": 5,
+        "theme": "Nature & Tranquility",
+        "activities": [
+          "KTX to Seoul",
+          "Nami Island Day Trip",
+          "Gangchon Rail Bike",
+          "Return to Seoul"
+        ],
+        "learningOutcome": "Natural beauty appreciation, Eco-tourism awareness"
+      },
+      {
+        "day": 6,
+        "theme": "Capital & Heritage",
+        "activities": [
+          "Seoul National University Tour",
+          "Itaewon Mosque",
+          "Gyeongbok Palace",
+          "Bukchon Hanok Village",
+          "Insadong Antique Street",
+          "Myeongdong Shopping"
+        ],
+        "learningOutcome": "Higher education opportunities, Cultural diversity"
+      },
+      {
+        "day": 7,
+        "theme": "Arts & Innovation",
+        "activities": [
+          "K-pop Dance Class or Taekwondo Training",
+          "Dongdaemun Design Plaza (DDP)",
+          "Dongdaemun Market",
+          "Nanta or Painters HERO Show"
+        ],
+        "learningOutcome": "Contemporary Korean culture, Creative industries"
+      },
+      {
+        "day": 8,
+        "theme": "Technology & Lifestyle",
+        "activities": [
+          "Samsung Innovation Museum (Suwon)",
+          "Everland Theme Park",
+          "Kimchi Making Class",
+          "Hanbok Photo Session"
+        ],
+        "learningOutcome": "Tech industry insights, Traditional culture preservation"
+      },
+      {
+        "day": 9,
+        "theme": "Departure",
+        "activities": [
+          "Breakfast",
+          "Transfer to ICN Airport"
+        ],
+        "learningOutcome": "Reflection & personal growth"
+      }
+    ],
+    "pricing": {
+      "fourStarKTX": {
+        "pax15": 2040,
+        "pax20": 1870,
+        "pax25": 1770,
+        "pax30": 1710
+      },
+      "fourStarCoach": {
+        "pax15": 1985,
+        "pax20": 1810,
+        "pax25": 1710,
+        "pax30": 1650
+      },
+      "sglSupplement": 500
+    },
+    "inclusions": [
+      "8 nights accommodation (Twin sharing)",
+      "8 breakfast + 7 lunch + 8 dinner",
+      "Meal Budget: Lunch $20/meal, Dinner $30/meal",
+      "Full tour & transfers with admission fees",
+      "English-speaking guide",
+      "KTX or Coach transport"
+    ],
+    "exclusions": [
+      "Tipping ($5/person/day)",
+      "International airfare"
+    ],
+    "hotels": {
+      "fourStar": "Selected 4-star hotels in each city"
+    }
+  },
+  {
+    "slug": "10d9n-korea-jeju",
+    "duration": "10 Days / 9 Nights",
+    "cities": ["Seoul", "Busan", "Jeju"],
+    "tagline": "From the DMZ to volcanic Jeju — every face of Korea in one journey",
+    "badge": "ULTIMATE",
+    "highlights": [
+      "DMZ Tour",
+      "Yonsei University Visit",
+      "Gyeongbok Palace & Guard Ceremony",
+      "KAIST & Robot Engineering",
+      "Hyundai Motor Plant",
+      "Hyundai Heavy Industries",
+      "Samsung Innovation Museum",
+      "Everland Theme Park",
+      "Seongsan Sunrise Peak",
+      "Yongduam Rock",
+      "Mysterious Road",
+      "Seongeup Folk Village",
+      "Cheonjiyeon Falls",
+      "Jeju Olle Trail",
+      "Haenyeo Culture Experience"
+    ],
+    "optionalPrograms": [],
+    "itinerary": [
+      {
+        "day": 1,
+        "theme": "Arrival & Adaptation",
+        "activities": [
+          "ICN Airport arrival",
+          "Transfer to Seoul",
+          "Hotel check-in",
+          "Indian dinner"
+        ],
+        "learningOutcome": "International travel confidence"
+      },
+      {
+        "day": 2,
+        "theme": "Korean History & Politics",
+        "activities": [
+          "DMZ Tour (Imjingak, 3rd Tunnel, Dora Observatory)",
+          "Yonsei University Visit",
+          "Gyeongbok Palace & Guard Ceremony",
+          "Bukchon Hanok Village"
+        ],
+        "learningOutcome": "International relations, Higher education motivation"
+      },
+      {
+        "day": 3,
+        "theme": "Aerospace & Robotics",
+        "activities": [
+          "KAIST Campus Tour",
+          "Robot Engineering Center",
+          "Insadong Antique Street",
+          "N Seoul Tower"
+        ],
+        "learningOutcome": "Advanced technology exposure, Innovation culture"
+      },
+      {
+        "day": 4,
+        "theme": "Industrial Powerhouse",
+        "activities": [
+          "Transfer to Ulsan",
+          "Hyundai Motor Plant Tour",
+          "Hyundai Heavy Industries",
+          "Kori Nuclear Power Plant"
+        ],
+        "learningOutcome": "Manufacturing excellence, Energy infrastructure"
+      },
+      {
+        "day": 5,
+        "theme": "Coastal Culture",
+        "activities": [
+          "Transfer to Busan",
+          "BIFF Square & Kukje Market",
+          "Gamcheon Culture Village",
+          "Haedong Yonggungsa Temple",
+          "Blue Line Park Train"
+        ],
+        "learningOutcome": "Urban development, Cultural preservation"
+      },
+      {
+        "day": 6,
+        "theme": "Technology & Lifestyle",
+        "activities": [
+          "Samsung Innovation Museum",
+          "Everland Theme Park",
+          "Kimchi Making Class",
+          "Hanbok Photo Session"
+        ],
+        "learningOutcome": "Tech industry insights, Traditional culture"
+      },
+      {
+        "day": 7,
+        "theme": "Volcanic Jeju Exploration",
+        "activities": [
+          "Flight to Jeju Island",
+          "Hotel check-in",
+          "Seongsan Sunrise Peak",
+          "Seongeup Folk Village"
+        ],
+        "learningOutcome": "Geological wonders, Island culture"
+      },
+      {
+        "day": 8,
+        "theme": "Jeju Nature & Culture",
+        "activities": [
+          "Yongduam Rock",
+          "Mysterious Road",
+          "Cheonjiyeon Falls",
+          "Jeju Olle Trail (Section)",
+          "Haenyeo (Female Diver) Culture Experience"
+        ],
+        "learningOutcome": "Natural beauty, Maritime heritage, Sustainable livelihoods"
+      },
+      {
+        "day": 9,
+        "theme": "Reflection & Departure",
+        "activities": [
+          "Free time for last-minute shopping",
+          "Flight from Jeju to ICN",
+          "Transfer to airport"
+        ],
+        "learningOutcome": "Reflection & personal growth"
+      }
+    ],
+    "pricing": {
+      "fourStar": {
+        "pax15": 2500,
+        "pax20": 2300,
+        "pax25": 2150,
+        "pax30": 2050
+      },
+      "sglSupplement": 550
+    },
+    "inclusions": [
+      "9 nights accommodation (Twin sharing)",
+      "9 breakfast + 8 lunch + 9 dinner",
+      "Meal Budget: Lunch $20/meal, Dinner $30/meal",
+      "Full tour & transfers with admission fees",
+      "English-speaking guide",
+      "Domestic flight Seoul to Jeju & return",
+      "KTX transport (Seoul-Busan)"
+    ],
+    "exclusions": [
+      "Tipping ($5/person/day)",
+      "International airfare"
+    ],
+    "hotels": {
+      "fourStar": "Selected 4-star hotels in Seoul, Busan, and Jeju"
+    }
+  }
+]

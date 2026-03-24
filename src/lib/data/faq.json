@@ -1,0 +1,99 @@
+[
+  {
+    "category": "Safety & Security",
+    "items": [
+      {
+        "question": "Is Korea safe for Indian students?",
+        "answer": "Yes, South Korea is one of the safest countries in the world with very low crime rates. Students are always accompanied by an English-speaking guide, private transport is arranged for all transfers, and all major logistics are pre-planned."
+      },
+      {
+        "question": "Who will supervise students during the trip?",
+        "answer": "Students will be supervised by school teachers (if accompanying), professional local English-speaking guides, and ground operations team throughout the program."
+      },
+      {
+        "question": "What happens if a student gets sick?",
+        "answer": "South Korea has one of the best healthcare systems in Asia. Students will be taken to nearby hospitals immediately. Travel insurance is strongly recommended, and we assist in coordination with hospitals and schools."
+      },
+      {
+        "question": "Can parents track their children?",
+        "answer": "Yes. Korea has excellent internet and mobile connectivity. Daily WhatsApp updates with photos and a 24-hour emergency hotline are provided."
+      }
+    ]
+  },
+  {
+    "category": "Educational Value",
+    "items": [
+      {
+        "question": "How is this educational and not just tourism?",
+        "answer": "This program is structured around measurable learning outcomes. Students learn about global history (DMZ), higher education (university visits), culture and heritage studies, and future industry exposure. A completion certificate is provided."
+      },
+      {
+        "question": "Does this help students academically?",
+        "answer": "Students gain global exposure, international confidence, higher education motivation, and cross-cultural communication skills — all important for future university applications and career readiness."
+      },
+      {
+        "question": "Why Korea instead of Singapore or Thailand?",
+        "answer": "Korea offers a unique combination: advanced technology nation, strong global education reputation, deep 5,000-year traditional culture, and the DMZ — a real-world geopolitics learning opportunity unavailable anywhere else in Asia."
+      }
+    ]
+  },
+  {
+    "category": "Food & Dietary",
+    "items": [
+      {
+        "question": "Will Indian food be available?",
+        "answer": "Yes. Indian or similar cuisine is arranged for all lunch and dinner meals. Meal budget per meal is already included in the program ($20-30 per meal)."
+      },
+      {
+        "question": "Is Halal food available?",
+        "answer": "Yes, Halal restaurants are available in Seoul and Busan. We arrange Halal meals upon request and can also visit the Itaewon Mosque."
+      },
+      {
+        "question": "Can Jain dietary needs be met?",
+        "answer": "Yes, Jain dietary requirements can be accommodated with advance notice. We work with restaurants to prepare suitable meals."
+      }
+    ]
+  },
+  {
+    "category": "Cost & Payment",
+    "items": [
+      {
+        "question": "Why is this more expensive than Southeast Asia trips?",
+        "answer": "South Korea is a developed country with higher infrastructure standards. The cost includes 5-8 nights hotel, all transport and entrance tickets, bullet train, guide services, and Indian meals. Most educational and logistics costs are already included."
+      },
+      {
+        "question": "Are there hidden costs?",
+        "answer": "No. Main exclusions are personal shopping, tips for guide and driver ($5/person/day), and international flight tickets. All major tour costs are included and transparent."
+      },
+      {
+        "question": "What is the payment policy?",
+        "answer": "Confirmation deposit of 20-80% is required. Full payment is due 14 days before arrival via bank transfer."
+      },
+      {
+        "question": "What is the cancellation policy?",
+        "answer": "15-30 days prior: 50% penalty. 7-15 days prior: 80% penalty. Within 7 days or no-show: 100% penalty."
+      }
+    ]
+  },
+  {
+    "category": "Travel Logistics",
+    "items": [
+      {
+        "question": "Do Indian students need a visa for Korea?",
+        "answer": "Visa requirements depend on the travel date. We provide all necessary support documents for visa applications."
+      },
+      {
+        "question": "What documents are required?",
+        "answer": "Valid passport (6+ months validity), visa (if required), and passport copies submitted 1-2 months early for DMZ security clearance reservation."
+      },
+      {
+        "question": "What is the best season to visit?",
+        "answer": "Spring (April-May) and Autumn (September-October) offer the best weather. Summer and winter are peak seasons with surcharges."
+      },
+      {
+        "question": "How far in advance should we book?",
+        "answer": "At least 2-3 months in advance to secure DMZ reservations, industrial visit approvals, and hotel bookings."
+      }
+    ]
+  }
+]

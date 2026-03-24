@@ -1,0 +1,402 @@
+[
+  {
+    "id": "yonsei-university-visit",
+    "name": "Yonsei University Visit",
+    "category": "educational",
+    "city": "Seoul",
+    "description": "Explore the foreign student curriculum and academic environment at one of Korea's top private universities.",
+    "duration": "Half-day",
+    "includedInPackages": ["5n6d-seoul-busan"],
+    "image": "/images/experiences/yonsei-university.jpg"
+  },
+  {
+    "id": "seoul-national-university",
+    "name": "Seoul National University",
+    "category": "educational",
+    "city": "Seoul",
+    "description": "Visit Korea's most prestigious university campus and learn about academic programs.",
+    "duration": "Half-day",
+    "includedInPackages": ["8d7n-stem-industry", "9d8n-comprehensive"],
+    "image": "/images/experiences/seoul-national-university.jpg"
+  },
+  {
+    "id": "kaist",
+    "name": "KAIST",
+    "category": "educational",
+    "city": "Daejeon",
+    "description": "Experience Asia's #1 innovation university, Korea's premier science and technology research institution.",
+    "duration": "Half-day",
+    "includedInPackages": ["8d7n-stem-industry", "9d8n-comprehensive"],
+    "image": "/images/experiences/kaist.jpg"
+  },
+  {
+    "id": "kmou",
+    "name": "KMOU (Korea Maritime & Ocean University)",
+    "category": "educational",
+    "city": "Busan",
+    "description": "Explore the specialized curriculum of Korea's leading maritime institution located on its own island.",
+    "duration": "Half-day",
+    "includedInPackages": ["5n6d-seoul-busan"],
+    "image": "/images/experiences/kmou.jpg"
+  },
+  {
+    "id": "busan-national-university",
+    "name": "Busan National University",
+    "category": "educational",
+    "city": "Busan",
+    "description": "Visit one of Korea's flagship national universities, famous for engineering.",
+    "duration": "Half-day",
+    "includedInPackages": ["8d7n-stem-industry", "9d8n-comprehensive"],
+    "image": "/images/experiences/busan-national-university.jpg"
+  },
+  {
+    "id": "ewha-womans-university",
+    "name": "Ewha Womans University",
+    "category": "educational",
+    "city": "Seoul",
+    "description": "Tour the world's largest women's university with its stunning ECC building.",
+    "duration": "Half-day",
+    "includedInPackages": [],
+    "image": "/images/experiences/ewha-womans-university.jpg"
+  },
+  {
+    "id": "dmz-tour",
+    "name": "DMZ Tour",
+    "category": "educational",
+    "city": "Paju",
+    "description": "Visit the Demilitarized Zone — Imjingak Park, 3rd Tunnel, and Dora Observatory for peace education.",
+    "duration": "Full-day",
+    "includedInPackages": ["5n6d-seoul-busan"],
+    "image": "/images/experiences/dmz-tour.jpg"
+  },
+  {
+    "id": "national-assembly-library",
+    "name": "National Assembly Library",
+    "category": "educational",
+    "city": "Seoul",
+    "description": "Tour Korea's legislative library supporting parliamentary democracy.",
+    "duration": "2hr",
+    "includedInPackages": [],
+    "image": "/images/experiences/national-assembly-library.jpg"
+  },
+  {
+    "id": "songam-stars-valley",
+    "name": "Songam Stars Valley",
+    "category": "educational",
+    "city": "Gyeonggi-do",
+    "description": "Visit one of Korea's largest space-themed observatory parks.",
+    "duration": "Half-day",
+    "includedInPackages": [],
+    "image": "/images/experiences/songam-stars-valley.jpg"
+  },
+  {
+    "id": "samsung-innovation-museum",
+    "name": "Samsung Innovation Museum",
+    "category": "industrial",
+    "city": "Suwon",
+    "description": "Discover the past, present and future of electronics industry innovation.",
+    "duration": "2hr",
+    "includedInPackages": ["8d7n-stem-industry", "9d8n-comprehensive"],
+    "image": "/images/experiences/samsung-innovation-museum.jpg"
+  },
+  {
+    "id": "hyundai-motor-ulsan-plant",
+    "name": "Hyundai Motor Ulsan Plant",
+    "category": "industrial",
+    "city": "Ulsan",
+    "description": "Tour the world's largest single automobile plant producing 1.6 million cars per year.",
+    "duration": "Half-day",
+    "includedInPackages": ["8d7n-stem-industry", "9d8n-comprehensive"],
+    "image": "/images/experiences/hyundai-motor-ulsan-plant.jpg"
+  },
+  {
+    "id": "hyundai-heavy-industries",
+    "name": "Hyundai Heavy Industries",
+    "category": "industrial",
+    "city": "Ulsan",
+    "description": "Visit the world's largest shipbuilder that has built over 1,800 large vessels.",
+    "duration": "Half-day",
+    "includedInPackages": ["8d7n-stem-industry", "9d8n-comprehensive"],
+    "image": "/images/experiences/hyundai-heavy-industries.jpg"
+  },
+  {
+    "id": "kari",
+    "name": "KARI (Korea Aerospace Research Institute)",
+    "category": "industrial",
+    "city": "Daejeon",
+    "description": "Explore Korea's space agency and aerospace technology development.",
+    "duration": "2hr",
+    "includedInPackages": ["8d7n-stem-industry", "9d8n-comprehensive"],
+    "image": "/images/experiences/kari.jpg"
+  },
+  {
+    "id": "kori-nuclear-power-plant",
+    "name": "Kori Nuclear Power Plant",
+    "category": "industrial",
+    "city": "Busan",
+    "description": "Visit the world's 6th largest nuclear power supplier facility.",
+    "duration": "2hr",
+    "includedInPackages": ["8d7n-stem-industry", "9d8n-comprehensive"],
+    "image": "/images/experiences/kori-nuclear-power-plant.jpg"
+  },
+  {
+    "id": "robot-engineering-center",
+    "name": "Robot Engineering Center",
+    "category": "industrial",
+    "city": "Daejeon",
+    "description": "Experience intelligent robotics, drones, and 3D printing technology.",
+    "duration": "2hr",
+    "includedInPackages": ["8d7n-stem-industry", "9d8n-comprehensive"],
+    "image": "/images/experiences/robot-engineering-center.jpg"
+  },
+  {
+    "id": "kia-motors-sohari-plant",
+    "name": "KIA Motors Sohari Plant",
+    "category": "industrial",
+    "city": "Gyeonggi-do",
+    "description": "Tour automobile manufacturing processes.",
+    "duration": "Half-day",
+    "includedInPackages": [],
+    "image": "/images/experiences/kia-motors-sohari-plant.jpg"
+  },
+  {
+    "id": "hanbok-experience",
+    "name": "Hanbok Experience",
+    "category": "cultural",
+    "city": "Seoul",
+    "description": "Wear traditional Korean costume and take photos at royal palaces.",
+    "duration": "1-2hr",
+    "includedInPackages": ["9d8n-comprehensive"],
+    "image": "/images/experiences/hanbok-experience.jpg"
+  },
+  {
+    "id": "kimchi-making",
+    "name": "Kimchi Making (UNESCO)",
+    "category": "cultural",
+    "city": "Seoul",
+    "description": "Learn to make Korea's iconic fermented dish, a UNESCO Intangible Heritage.",
+    "duration": "1.5hr",
+    "includedInPackages": ["9d8n-comprehensive"],
+    "image": "/images/experiences/kimchi-making.jpg"
+  },
+  {
+    "id": "gimbap-making",
+    "name": "Gimbap Making",
+    "category": "cultural",
+    "city": "Seoul",
+    "description": "Make Korean-style rice rolls in a hands-on cooking class.",
+    "duration": "1hr",
+    "includedInPackages": ["5n6d-seoul-busan"],
+    "image": "/images/experiences/gimbap-making.jpg"
+  },
+  {
+    "id": "taekwondo-experience",
+    "name": "Taekwondo Experience",
+    "category": "cultural",
+    "city": "Seoul",
+    "description": "Learn basic martial arts moves of Korea's traditional combat sport.",
+    "duration": "1.5hr",
+    "includedInPackages": ["8d7n-stem-industry"],
+    "image": "/images/experiences/taekwondo-experience.jpg"
+  },
+  {
+    "id": "korean-cooking-class",
+    "name": "Korean Cooking Class",
+    "category": "cultural",
+    "city": "Seoul",
+    "description": "Cook Korean dishes like Shabu-shabu and Bulgogi.",
+    "duration": "2hr",
+    "includedInPackages": [],
+    "image": "/images/experiences/korean-cooking-class.jpg"
+  },
+  {
+    "id": "kpop-dance-class-mv",
+    "name": "K-pop Dance Class + MV",
+    "category": "kwave",
+    "city": "Seoul",
+    "description": "Learn K-pop choreography and shoot your own music video.",
+    "duration": "2-3hr",
+    "includedInPackages": ["8d7n-stem-industry", "9d8n-comprehensive"],
+    "image": "/images/experiences/kpop-dance-class-mv.jpg"
+  },
+  {
+    "id": "kbeauty-experience",
+    "name": "K-Beauty Experience",
+    "category": "kwave",
+    "city": "Seoul",
+    "description": "Experience the Korean beauty routine with masks and skincare.",
+    "duration": "1.5hr",
+    "includedInPackages": [],
+    "image": "/images/experiences/kbeauty-experience.jpg"
+  },
+  {
+    "id": "nanta-show",
+    "name": "Nanta Show",
+    "category": "kwave",
+    "city": "Seoul",
+    "description": "Watch the iconic non-verbal percussion cooking performance.",
+    "duration": "1.5hr",
+    "includedInPackages": ["8d7n-stem-industry", "9d8n-comprehensive"],
+    "image": "/images/experiences/nanta-show.jpg"
+  },
+  {
+    "id": "painters-hero",
+    "name": "Painters HERO",
+    "category": "kwave",
+    "city": "Seoul",
+    "description": "Enjoy live drawing art performance with comedy and dance.",
+    "duration": "1.5hr",
+    "includedInPackages": ["8d7n-stem-industry", "9d8n-comprehensive"],
+    "image": "/images/experiences/painters-hero.jpg"
+  },
+  {
+    "id": "kbs-drama-studio",
+    "name": "KBS Drama Studio",
+    "category": "kwave",
+    "city": "Suwon",
+    "description": "Visit a professional TV drama filming studio.",
+    "duration": "2hr",
+    "includedInPackages": [],
+    "image": "/images/experiences/kbs-drama-studio.jpg"
+  },
+  {
+    "id": "gyeongbok-palace",
+    "name": "Gyeongbok Palace",
+    "category": "sightseeing",
+    "city": "Seoul",
+    "description": "Explore Korea's largest and most iconic royal palace with breathtaking traditional architecture.",
+    "duration": "2-3hr",
+    "includedInPackages": [],
+    "image": "/images/experiences/gyeongbok-palace.jpg"
+  },
+  {
+    "id": "n-seoul-tower",
+    "name": "N Seoul Tower",
+    "category": "sightseeing",
+    "city": "Seoul",
+    "description": "Enjoy panoramic views of Seoul from this iconic landmark with observation decks and restaurants.",
+    "duration": "1-2hr",
+    "includedInPackages": [],
+    "image": "/images/experiences/n-seoul-tower.jpg"
+  },
+  {
+    "id": "bukchon-hanok-village",
+    "name": "Bukchon Hanok Village",
+    "category": "sightseeing",
+    "city": "Seoul",
+    "description": "Wander through traditional Korean houses and charming alleyways in this preserved historic village.",
+    "duration": "1-2hr",
+    "includedInPackages": [],
+    "image": "/images/experiences/bukchon-hanok-village.jpg"
+  },
+  {
+    "id": "insadong",
+    "name": "Insadong",
+    "category": "sightseeing",
+    "city": "Seoul",
+    "description": "Browse traditional antiques, galleries, and tea houses on Seoul's most culturally vibrant street.",
+    "duration": "1-2hr",
+    "includedInPackages": [],
+    "image": "/images/experiences/insadong.jpg"
+  },
+  {
+    "id": "cheonggyecheon-stream",
+    "name": "Cheonggyecheon Stream",
+    "category": "sightseeing",
+    "city": "Seoul",
+    "description": "Stroll along this restored urban stream that winds through downtown Seoul with scenic walkways.",
+    "duration": "1hr",
+    "includedInPackages": [],
+    "image": "/images/experiences/cheonggyecheon-stream.jpg"
+  },
+  {
+    "id": "myeongdong",
+    "name": "Myeongdong",
+    "category": "sightseeing",
+    "city": "Seoul",
+    "description": "Shop at Korea's busiest shopping district featuring international brands and local boutiques.",
+    "duration": "2-3hr",
+    "includedInPackages": [],
+    "image": "/images/experiences/myeongdong.jpg"
+  },
+  {
+    "id": "hongdae",
+    "name": "Hongdae",
+    "category": "sightseeing",
+    "city": "Seoul",
+    "description": "Experience Seoul's trendy artistic neighborhood with street art, cafes, and boutique shops.",
+    "duration": "2-3hr",
+    "includedInPackages": [],
+    "image": "/images/experiences/hongdae.jpg"
+  },
+  {
+    "id": "ddp",
+    "name": "DDP (Dongdaemun Design Plaza)",
+    "category": "sightseeing",
+    "city": "Seoul",
+    "description": "Visit this futuristic architectural marvel hosting design exhibitions and cultural events.",
+    "duration": "1-2hr",
+    "includedInPackages": [],
+    "image": "/images/experiences/ddp.jpg"
+  },
+  {
+    "id": "haedong-yonggungsa",
+    "name": "Haedong Yonggungsa",
+    "category": "sightseeing",
+    "city": "Busan",
+    "description": "Visit this stunning seaside temple perched on cliffs overlooking the East Sea.",
+    "duration": "1-2hr",
+    "includedInPackages": [],
+    "image": "/images/experiences/haedong-yonggungsa.jpg"
+  },
+  {
+    "id": "gamcheon-culture-village",
+    "name": "Gamcheon Culture Village",
+    "category": "sightseeing",
+    "city": "Busan",
+    "description": "Explore colorful hillside houses and street art in this charming bohemian village.",
+    "duration": "1-2hr",
+    "includedInPackages": [],
+    "image": "/images/experiences/gamcheon-culture-village.jpg"
+  },
+  {
+    "id": "haeundae-beach",
+    "name": "Haeundae Beach",
+    "category": "sightseeing",
+    "city": "Busan",
+    "description": "Relax on Busan's most famous sandy beach with modern facilities and vibrant atmosphere.",
+    "duration": "2-3hr",
+    "includedInPackages": [],
+    "image": "/images/experiences/haeundae-beach.jpg"
+  },
+  {
+    "id": "oryukdo-skywalk",
+    "name": "Oryukdo Skywalk",
+    "category": "sightseeing",
+    "city": "Busan",
+    "description": "Walk on glass platforms suspended over the sea with breathtaking coastal views.",
+    "duration": "1hr",
+    "includedInPackages": [],
+    "image": "/images/experiences/oryukdo-skywalk.jpg"
+  },
+  {
+    "id": "nami-island",
+    "name": "Nami Island",
+    "category": "sightseeing",
+    "city": "Gapyeong",
+    "description": "Stroll through this picturesque island paradise famous for tree-lined paths and scenic landscapes.",
+    "duration": "3-4hr",
+    "includedInPackages": [],
+    "image": "/images/experiences/nami-island.jpg"
+  },
+  {
+    "id": "everland",
+    "name": "Everland",
+    "category": "sightseeing",
+    "city": "Yongin",
+    "description": "Experience Korea's premier theme park with thrilling rides and beautiful seasonal attractions.",
+    "duration": "Full-day",
+    "includedInPackages": [],
+    "image": "/images/experiences/everland.jpg"
+  }
+]

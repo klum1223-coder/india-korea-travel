@@ -1,0 +1,142 @@
+[
+  {
+    "name": "Taj Palace",
+    "city": "Seoul",
+    "cuisine": "Indian",
+    "capacity": 50,
+    "vegetarian": true,
+    "halal": true,
+    "address": null,
+    "description": "Traditional Indian restaurant with curry, tandoori chicken and kebab"
+  },
+  {
+    "name": "Ganga",
+    "city": "Seoul",
+    "cuisine": "Indian",
+    "capacity": null,
+    "vegetarian": true,
+    "halal": true,
+    "address": null,
+    "description": "Authentic Indian cuisine restaurant"
+  },
+  {
+    "name": "Little India Seoul",
+    "city": "Seoul",
+    "cuisine": "Indian",
+    "capacity": null,
+    "vegetarian": true,
+    "halal": true,
+    "address": null,
+    "description": "Indian home-style cooking"
+  },
+  {
+    "name": "Hello India",
+    "city": "Seoul",
+    "cuisine": "Indian",
+    "capacity": null,
+    "vegetarian": true,
+    "halal": true,
+    "address": null,
+    "description": "Indian cuisine specialist"
+  },
+  {
+    "name": "AsiaAsia",
+    "city": "Seoul",
+    "cuisine": "Asian Fusion",
+    "capacity": null,
+    "vegetarian": true,
+    "halal": false,
+    "address": null,
+    "description": "Pan-Asian cuisine"
+  },
+  {
+    "name": "Bombay Grill",
+    "city": "Seoul",
+    "cuisine": "Indian",
+    "capacity": null,
+    "vegetarian": true,
+    "halal": true,
+    "address": null,
+    "description": "Indian grill specialties"
+  },
+  {
+    "name": "Foreign Restaurant",
+    "city": "Seoul",
+    "cuisine": "International",
+    "capacity": null,
+    "vegetarian": true,
+    "halal": false,
+    "address": null,
+    "description": "Multinational cuisine with vegetarian buffet"
+  },
+  {
+    "name": "Kervan Restaurant",
+    "city": "Seoul",
+    "cuisine": "Turkish",
+    "capacity": 100,
+    "vegetarian": false,
+    "halal": true,
+    "address": null,
+    "description": "Turkish cuisine, large group capacity"
+  },
+  {
+    "name": "Namaste",
+    "city": "Busan",
+    "cuisine": "Indian",
+    "capacity": null,
+    "vegetarian": true,
+    "halal": true,
+    "address": null,
+    "description": "Indian cuisine"
+  },
+  {
+    "name": "Bombay Brau",
+    "city": "Busan",
+    "cuisine": "Indian",
+    "capacity": 46,
+    "vegetarian": true,
+    "halal": true,
+    "address": "40, Munhyeongeumyung-ro, Nam-gu, Busan",
+    "description": "Indian cuisine"
+  },
+  {
+    "name": "Hello India AL LA WA",
+    "city": "Busan",
+    "cuisine": "Indian",
+    "capacity": null,
+    "vegetarian": true,
+    "halal": true,
+    "address": null,
+    "description": "Indian cuisine"
+  },
+  {
+    "name": "Rama & Bavana",
+    "city": "Busan",
+    "cuisine": "Indian",
+    "capacity": 38,
+    "vegetarian": true,
+    "halal": true,
+    "address": "22, Jungang-daero 680beon-gil, Busanjin-gu, Busan",
+    "description": "Indian cuisine"
+  },
+  {
+    "name": "New Little India",
+    "city": "Busan",
+    "cuisine": "Indian",
+    "capacity": 60,
+    "vegetarian": true,
+    "halal": true,
+    "address": "205, Jungang-daero, Dong-gu, Busan",
+    "description": "Indian cuisine"
+  },
+  {
+    "name": "Persian Palace",
+    "city": "Busan",
+    "cuisine": "Middle Eastern",
+    "capacity": null,
+    "vegetarian": false,
+    "halal": true,
+    "address": null,
+    "description": "Middle Eastern and Halal cuisine"
+  }
+]

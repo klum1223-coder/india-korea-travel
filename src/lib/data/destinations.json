@@ -1,0 +1,228 @@
+[
+  {
+    "slug": "seoul",
+    "name": "Seoul",
+    "heroTagline": "Where 600 Years of History Meets Tomorrow's Technology",
+    "quickFacts": {
+      "population": "10 million",
+      "language": "Korean",
+      "currency": "KRW",
+      "timezone": "GMT+9",
+      "bestSeason": "Spring (Apr-May) / Fall (Sep-Oct)"
+    },
+    "spots": [
+      {
+        "name": "Gyeongbok Palace",
+        "type": "history",
+        "description": "1395 royal palace with guard changing ceremony"
+      },
+      {
+        "name": "N Seoul Tower",
+        "type": "viewpoint",
+        "description": "480m above sea level panoramic views"
+      },
+      {
+        "name": "Bukchon Hanok Village",
+        "type": "traditional",
+        "description": "600+ Joseon dynasty traditional houses"
+      },
+      {
+        "name": "Insadong",
+        "type": "culture",
+        "description": "Traditional crafts, antiques, 100+ galleries"
+      },
+      {
+        "name": "Cheonggyecheon Stream",
+        "type": "nature",
+        "description": "11km restored urban stream through downtown"
+      },
+      {
+        "name": "Myeongdong",
+        "type": "shopping",
+        "description": "Korea's premier shopping district"
+      },
+      {
+        "name": "Hongdae",
+        "type": "youth",
+        "description": "Street performances, art and cafe culture"
+      },
+      {
+        "name": "DDP",
+        "type": "architecture",
+        "description": "Zaha Hadid designed futuristic landmark"
+      },
+      {
+        "name": "Dongdaemun Market",
+        "type": "shopping",
+        "description": "Asia's largest fashion market"
+      },
+      {
+        "name": "Gwanghwamun Square",
+        "type": "history",
+        "description": "King Sejong statue, Hangeul history"
+      },
+      {
+        "name": "Presidential Blue House",
+        "type": "political",
+        "description": "Former presidential residence, now public"
+      },
+      {
+        "name": "Itaewon Mosque",
+        "type": "religious",
+        "description": "Seoul Central Mosque for Muslim visitors"
+      }
+    ]
+  },
+  {
+    "slug": "busan",
+    "name": "Busan",
+    "heroTagline": "Korea's Ocean City — Beaches, Temples, and Fresh Energy",
+    "quickFacts": {
+      "population": "3.5 million",
+      "language": "Korean",
+      "currency": "KRW",
+      "timezone": "GMT+9",
+      "bestSeason": "Spring (Apr-May) / Fall (Sep-Oct)"
+    },
+    "spots": [
+      {
+        "name": "Haedong Yonggungsa",
+        "type": "temple",
+        "description": "Rare seaside Buddhist temple with ocean views"
+      },
+      {
+        "name": "Gamcheon Culture Village",
+        "type": "art",
+        "description": "Colorful hillside village, Korea's Santorini"
+      },
+      {
+        "name": "BIFF Square",
+        "type": "culture",
+        "description": "Busan International Film Festival street"
+      },
+      {
+        "name": "Jagalchi Fish Market",
+        "type": "market",
+        "description": "Asia's largest seafood market"
+      },
+      {
+        "name": "Oryukdo Skywalk",
+        "type": "viewpoint",
+        "description": "35m glass bridge over coastal cliffs"
+      },
+      {
+        "name": "Haeundae Beach",
+        "type": "beach",
+        "description": "Korea's most famous white sand beach"
+      },
+      {
+        "name": "Nurimaru APEC House",
+        "type": "international",
+        "description": "2005 APEC Summit venue"
+      },
+      {
+        "name": "Kukje Market",
+        "type": "market",
+        "description": "International market formed after Korean War"
+      }
+    ]
+  },
+  {
+    "slug": "daejeon-ulsan",
+    "name": "Daejeon & Ulsan",
+    "heroTagline": "Korea's Science City and Industrial Powerhouse",
+    "quickFacts": {
+      "population": "3 million combined",
+      "language": "Korean",
+      "currency": "KRW",
+      "timezone": "GMT+9",
+      "bestSeason": "Spring (Apr-May) / Fall (Sep-Oct)"
+    },
+    "spots": [
+      {
+        "name": "KARI",
+        "type": "science",
+        "description": "Korea Aerospace Research Institute"
+      },
+      {
+        "name": "KAIST",
+        "type": "education",
+        "description": "Asia's top science and technology university"
+      },
+      {
+        "name": "Robot Engineering Center",
+        "type": "technology",
+        "description": "Intelligent robotics, drones, 3D printing"
+      },
+      {
+        "name": "Hyundai Motor Ulsan Plant",
+        "type": "industry",
+        "description": "World's largest single automobile plant"
+      },
+      {
+        "name": "Hyundai Heavy Industries",
+        "type": "industry",
+        "description": "World's largest shipbuilder"
+      },
+      {
+        "name": "Kori Nuclear Power Plant",
+        "type": "industry",
+        "description": "World's 6th largest nuclear power supplier"
+      }
+    ]
+  },
+  {
+    "slug": "jeju",
+    "name": "Jeju Island",
+    "heroTagline": "Volcanic Paradise — UNESCO Heritage and Natural Wonders",
+    "quickFacts": {
+      "population": "700,000",
+      "language": "Korean",
+      "currency": "KRW",
+      "timezone": "GMT+9",
+      "bestSeason": "Spring (Apr-May) / Fall (Sep-Oct)"
+    },
+    "spots": [
+      {
+        "name": "Seongsan Sunrise Peak",
+        "type": "nature",
+        "description": "UNESCO World Heritage, 100,000 year old volcanic crater"
+      },
+      {
+        "name": "Yongduam Dragon Head Rock",
+        "type": "nature",
+        "description": "Dragon-shaped rock formation, Jeju symbol"
+      },
+      {
+        "name": "Mysterious Road",
+        "type": "attraction",
+        "description": "Optical illusion gravity-defying road"
+      },
+      {
+        "name": "Seongeup Folk Village",
+        "type": "traditional",
+        "description": "Traditional Jeju culture, stone grandfather statues"
+      },
+      {
+        "name": "Cheonjiyeon Falls",
+        "type": "nature",
+        "description": "22m waterfall with subtropical forest"
+      },
+      {
+        "name": "Jeju Olle Trail",
+        "type": "hiking",
+        "description": "Coastal walking trail around the island"
+      },
+      {
+        "name": "Haenyeo Women Divers",
+        "type": "culture",
+        "description": "UNESCO heritage female free-diving tradition"
+      },
+      {
+        "name": "Jeju Aerospace Museum",
+        "type": "education",
+        "description": "Aviation and space science museum"
+      }
+    ]
+  }
+]
