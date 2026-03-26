@@ -1,79 +1,126 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function HeroSection() {
   return (
     <section
+      aria-label="Hero — Korea Educational Immersion Program for Indian Students"
       className="relative min-h-[85vh] flex items-center justify-center overflow-hidden"
-      style={{
-        background:
-          'linear-gradient(135deg, #1B3A5C 0%, #0f2540 40%, #1a3352 70%, rgba(27,58,92,0.92) 100%)',
-      }}
     >
-      {/* Decorative background elements */}
+      {/* Background image */}
+      <Image
+        src="/images/hero/seoul-skyline.jpg"
+        alt="Seoul cityscape at night"
+        fill
+        className="object-cover"
+        priority
+        sizes="100vw"
+      />
+
+      {/* Gradient overlay */}
       <div
-        className="absolute inset-0 opacity-10"
+        className="absolute inset-0 bg-gradient-to-b from-primary/85 via-primary/75 to-primary/90"
+        aria-hidden="true"
+      />
+
+      {/* Ambient glow blobs */}
+      <div
+        className="absolute inset-0 opacity-15"
         style={{
           backgroundImage:
-            'radial-gradient(circle at 20% 80%, #E8732A 0%, transparent 50%), radial-gradient(circle at 80% 20%, #D4A843 0%, transparent 50%)',
+            'radial-gradient(circle at 18% 82%, #E8732A 0%, transparent 48%), radial-gradient(circle at 82% 18%, #D4A843 0%, transparent 48%)',
         }}
+        aria-hidden="true"
+      />
+
+      {/* Subtle dot-grid texture */}
+      <div
+        className="absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)',
+          backgroundSize: '28px 28px',
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Decorative ring (top-right) */}
+      <div
+        className="absolute -top-24 -right-24 w-96 h-96 rounded-full border border-white/10 opacity-40 pointer-events-none"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute -top-12 -right-12 w-64 h-64 rounded-full border border-white/10 opacity-30 pointer-events-none"
+        aria-hidden="true"
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Eyebrow tag */}
-        <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-6">
+        <div className="inline-flex items-center gap-2 bg-white/10 border border-white/25 rounded-full px-4 py-1.5 mb-6 animate-fade-in-up">
           <span className="text-accent text-sm font-semibold tracking-wide uppercase">
             Educational Travel
           </span>
-          <span className="text-white/60 text-xs">•</span>
-          <span className="text-white/70 text-sm">India → Korea</span>
+          <span className="text-white/80 text-xs" aria-hidden="true">•</span>
+          <span className="text-white/85 text-sm">India → Korea</span>
         </div>
 
         {/* Main headline */}
-        <h1 className="font-poppins text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight max-w-5xl mx-auto mb-6">
+        <h1
+          className="font-poppins text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight max-w-5xl mx-auto mb-6 animate-fade-in-up"
+          style={{ animationDelay: '60ms' }}
+        >
           Korea Educational Immersion Program{' '}
           <span className="text-secondary">for Indian Students</span>
         </h1>
 
         {/* Subtitle */}
-        <p className="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed">
+        <p
+          className="text-xl md:text-2xl text-white/85 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up"
+          style={{ animationDelay: '120ms' }}
+        >
           Where Ancient Traditions Meet Cutting-Edge Innovation
         </p>
 
         {/* CTA buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up"
+          style={{ animationDelay: '180ms' }}
+        >
           <Link
             href="/packages"
-            className="inline-flex items-center justify-center font-semibold transition-colors duration-200 bg-secondary text-white hover:bg-secondary/90 active:bg-secondary/80 shadow-lg px-7 py-3.5 text-lg rounded-xl"
+            className="inline-flex items-center justify-center font-semibold transition-all duration-200 bg-secondary text-white hover:bg-secondary/90 active:bg-secondary/80 shadow-lg hover:shadow-xl hover:scale-[1.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-secondary/70 focus-visible:ring-offset-primary px-7 py-3.5 text-lg rounded-xl"
           >
             Explore Packages
           </Link>
           <Link
             href="/for-schools"
-            className="inline-flex items-center justify-center font-semibold transition-colors duration-200 border-2 border-white text-white bg-transparent hover:bg-white hover:text-primary px-7 py-3.5 text-lg rounded-xl"
+            className="inline-flex items-center justify-center font-semibold transition-all duration-200 border-2 border-white text-white bg-transparent hover:bg-white hover:text-primary hover:scale-[1.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white/70 focus-visible:ring-offset-primary px-7 py-3.5 text-lg rounded-xl"
           >
             Request a Proposal
           </Link>
         </div>
 
         {/* Quick stats row */}
-        <div className="mt-16 flex flex-wrap justify-center gap-8 md:gap-16">
+        <div
+          className="mt-16 flex flex-wrap justify-center gap-8 md:gap-16 animate-fade-in-up"
+          style={{ animationDelay: '240ms' }}
+        >
           {[
             { value: '50+', label: 'Schools Trust Us' },
             { value: '1000+', label: 'Students Transformed' },
             { value: '4.9/5', label: 'Rating' },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
-              <div className="font-poppins text-2xl md:text-3xl font-bold text-secondary">
+              <div className="font-poppins text-2xl md:text-3xl font-bold text-accent">
                 {stat.value}
               </div>
-              <div className="text-white/60 text-sm mt-1">{stat.label}</div>
+              <div className="text-white/85 text-sm mt-1">{stat.label}</div>
             </div>
           ))}
         </div>
       </div>
 
       {/* Bottom wave */}
-      <div className="absolute bottom-0 left-0 right-0 overflow-hidden leading-none">
+      <div className="absolute bottom-0 left-0 right-0 overflow-hidden leading-none" aria-hidden="true">
         <svg
           viewBox="0 0 1440 60"
           fill="none"

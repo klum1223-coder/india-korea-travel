@@ -28,12 +28,6 @@ export default function BlogPostContent({ post }: BlogPostContentProps) {
     day: 'numeric',
   })
 
-  // Split body into paragraphs
-  const paragraphs = post.body
-    .split('\n\n')
-    .map((p) => p.trim())
-    .filter(Boolean)
-
   return (
     <article className="max-w-3xl mx-auto">
       {/* Back link */}
@@ -55,14 +49,6 @@ export default function BlogPostContent({ post }: BlogPostContentProps) {
           <Badge variant={categoryBadgeVariant(post.category)}>
             {categoryLabels[post.category]}
           </Badge>
-          {post.isAIGenerated && (
-            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-bold">
-              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
-              </svg>
-              AI Generated
-            </span>
-          )}
         </div>
 
         <h1 className="font-poppins text-3xl sm:text-4xl font-bold text-primary leading-tight mb-3">
@@ -117,16 +103,10 @@ export default function BlogPostContent({ post }: BlogPostContentProps) {
       </div>
 
       {/* Body */}
-      <div className="prose-content max-w-3xl mb-12">
-        {paragraphs.map((para, index) => (
-          <p
-            key={index}
-            className="text-text-primary leading-relaxed text-base mb-5 last:mb-0"
-          >
-            {para}
-          </p>
-        ))}
-      </div>
+      <div
+        className="prose-content max-w-3xl mb-12"
+        dangerouslySetInnerHTML={{ __html: post.body }}
+      />
 
       {/* Related package CTA */}
       {post.relatedPackageSlug && (

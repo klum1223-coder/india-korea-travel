@@ -14,7 +14,23 @@
   /* Font families */
   --font-poppins: var(--font-poppins);
   --font-inter: var(--font-inter);
-  --font-dm-sans: var(--font-dm-sans);
+}
+
+/* ─── Layout tokens ───────────────────────────────────────── */
+:root {
+  /* Top contact bar (md+): 2rem (py-1.5 × 2 + text-xs line-height ≈ 1.5rem + padding = ~2rem) */
+  --header-contact-bar-height: 2rem;
+  /* Main nav bar: h-16 = 4rem */
+  --header-nav-height: 4rem;
+  /* Total header on mobile (no contact bar) */
+  --header-height-mobile: var(--header-nav-height);
+  /* Total header on desktop (contact bar + nav) */
+  --header-height-desktop: calc(var(--header-contact-bar-height) + var(--header-nav-height));
+}
+
+/* ─── Base ────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -23,6 +39,143 @@ body {
   font-family: var(--font-inter), system-ui, sans-serif;
 }
 
+/* Prevent body scroll when mobile menu is open */
+body.menu-open {
+  overflow: hidden;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-poppins), system-ui, sans-serif;
+}
+
+/* ─── Skip to content (accessibility) ────────────────────── */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 9999;
+}
+.skip-to-content:focus {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  width: auto;
+  height: auto;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ─── Animations ─────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Mobile menu slide-down animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 300ms ease both;
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+.animate-slide-down {
+  animation: slideDown 200ms ease both;
+}
+
+/* ─── Card elevation helper ──────────────────────────────── */
+.card-hover {
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 12px 28px -4px rgba(27, 58, 92, 0.12), 0 4px 8px -2px rgba(27, 58, 92, 0.08);
+}
+
+/* ─── Main content offset (compensates for fixed header) ──── */
+.main-offset {
+  padding-top: var(--header-height-mobile);
+}
+@media (min-width: 768px) {
+  .main-offset {
+    padding-top: var(--header-height-desktop);
+  }
+}
+
+/* ─── Scrollbar hiding utility ───────────────────────────── */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE / Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;             /* Chrome / Safari */
+}
+
+/* ─── Horizontal carousel scroll-snap ───────────────────── */
+.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-padding-left: 1rem;
+}
+
+.carousel-track > * {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+/* Gradient fade hints for carousel edges */
+.carousel-wrapper {
+  position: relative;
+}
+.carousel-wrapper::before,
+.carousel-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3rem;
+  z-index: 1;
+  pointer-events: none;
+}
+.carousel-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color-surface), transparent);
+}
+.carousel-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color-surface), transparent);
 }

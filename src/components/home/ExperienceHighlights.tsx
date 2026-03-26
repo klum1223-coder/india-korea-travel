@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import Container from '@/components/ui/Container'
 import SectionHeading from '@/components/ui/SectionHeading'
 import experiencesData from '@/lib/data/experiences.json'
@@ -13,6 +14,14 @@ const categoryColors: Record<ExperienceCategory, string> = {
   sightseeing: 'bg-green-100 text-green-700',
 }
 
+const categoryBarColors: Record<ExperienceCategory, string> = {
+  educational: 'bg-blue-500',
+  industrial: 'bg-orange-500',
+  cultural: 'bg-purple-500',
+  kwave: 'bg-pink-500',
+  sightseeing: 'bg-green-500',
+}
+
 // Pick 8 featured experiences with a mix of categories
 const FEATURED_IDS = [
   'dmz-tour',
@@ -25,44 +34,71 @@ const FEATURED_IDS = [
   'nami-island',
 ]
 
+const experienceImages: Record<string, string> = {
+  'dmz-tour': '/images/experiences/seoul-night.jpg',
+  'kaist': '/images/blog/korea-university.jpg',
+  'hyundai-motor-ulsan-plant': '/images/experiences/ddp-interior.jpg',
+  'samsung-innovation-museum': '/images/experiences/ddp-seoul.jpg',
+  'hanbok-experience': '/images/experiences/hanbok-experience.jpg',
+  'kpop-dance-class-mv': '/images/blog/hongdae-night.jpg',
+  'gyeongbok-palace': '/images/experiences/gyeongbok-palace.jpg',
+  'nami-island': '/images/experiences/cherry-night.jpg',
+}
+
 export default function ExperienceHighlights() {
   const featured = FEATURED_IDS
     .map((id) => experiencesData.find((e) => e.id === id))
     .filter((e): e is (typeof experiencesData)[number] => e !== undefined)
 
   return (
-    <section className="py-20 bg-surface">
+    <section className="py-20 bg-surface" aria-labelledby="experience-highlights-heading">
       <Container>
         <SectionHeading
+          id="experience-highlights-heading"
           title="Experience Highlights"
           subtitle="A taste of what awaits — from ancient palaces to cutting-edge innovation labs."
           align="center"
         />
       </Container>
 
-      {/* Full-width scroll container */}
-      <div className="overflow-x-auto pb-4">
-        <div className="flex gap-4 px-4 sm:px-6 lg:px-8 min-w-max mx-auto" style={{ maxWidth: 'none' }}>
+      {/*
+        Carousel: scroll-snap, hidden scrollbar, gradient fade hints via carousel-wrapper.
+        Left/right padding aligns cards with the max-w-7xl container on larger screens.
+      */}
+      <div
+        className="carousel-wrapper mt-2"
+        aria-label="Scrollable experience cards — swipe to explore"
+      >
+        <div
+          className="carousel-track scrollbar-hide gap-4 px-4 sm:px-8 lg:px-[max(2rem,calc((100vw_-_80rem)/2_+_2rem))]"
+          role="list"
+        >
           {featured.map((exp) => {
             const category = exp.category as ExperienceCategory
+            const imageUrl = experienceImages[exp.id]
             return (
               <div
                 key={exp.id}
-                className="bg-white rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 border border-surface flex flex-col w-64 shrink-0"
+                role="listitem"
+                className="card-hover bg-white rounded-2xl shadow-sm border border-gray-200 flex flex-col w-64 shrink-0"
               >
+                {/* Experience image */}
+                {imageUrl && (
+                  <div className="relative aspect-[3/2] w-full overflow-hidden rounded-t-2xl">
+                    <Image
+                      src={imageUrl}
+                      alt={exp.name}
+                      fill
+                      className="object-cover"
+                      sizes="256px"
+                    />
+                  </div>
+                )}
+
                 {/* Category color bar */}
                 <div
-                  className={`h-1.5 rounded-t-2xl ${
-                    category === 'educational'
-                      ? 'bg-blue-500'
-                      : category === 'industrial'
-                      ? 'bg-orange-500'
-                      : category === 'cultural'
-                      ? 'bg-purple-500'
-                      : category === 'kwave'
-                      ? 'bg-pink-500'
-                      : 'bg-green-500'
-                  }`}
+                  className={`h-1.5 ${!imageUrl ? 'rounded-t-2xl' : ''} ${categoryBarColors[category]}`}
+                  aria-hidden="true"
                 />
 
                 <div className="p-5 flex flex-col flex-1">
@@ -88,8 +124,8 @@ export default function ExperienceHighlights() {
                     {exp.description}
                   </p>
 
-                  <div className="mt-3 pt-3 border-t border-surface">
-                    <span className="text-xs text-text-secondary/60">
+                  <div className="mt-3 pt-3 border-t border-gray-100">
+                    <span className="text-xs text-text-secondary/80">
                       Duration: {exp.duration}
                     </span>
                   </div>
@@ -100,11 +136,16 @@ export default function ExperienceHighlights() {
         </div>
       </div>
 
+      {/* Swipe hint — visible on mobile only */}
+      <p className="text-center text-xs text-text-secondary/50 mt-3 md:hidden" aria-hidden="true">
+        ← swipe to explore →
+      </p>
+
       {/* Link to all experiences */}
-      <div className="text-center mt-8">
+      <div className="text-center mt-6">
         <Link
           href="/experiences"
-          className="inline-flex items-center gap-1 text-secondary font-semibold hover:text-secondary/80 transition-colors duration-200"
+          className="inline-flex items-center gap-1 text-secondary font-semibold hover:text-secondary/80 hover:gap-2 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/50 focus-visible:ring-offset-2 rounded-sm"
         >
           Explore All Experiences →
         </Link>

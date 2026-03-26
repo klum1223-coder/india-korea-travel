@@ -1,5 +1,3 @@
-import Container from '@/components/ui/Container'
-
 const partners = [
   'Yonsei University',
   'Seoul National University',
@@ -9,31 +7,44 @@ const partners = [
 ]
 
 export default function TrustBar() {
+  // Duplicate list for seamless marquee loop
+  const doubledPartners = [...partners, ...partners]
+
   return (
-    <section className="bg-surface border-y border-surface py-6">
-      <Container>
-        <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-10">
-          {/* Label */}
-          <p className="text-text-secondary text-sm font-semibold uppercase tracking-widest whitespace-nowrap shrink-0">
-            Trusted by Schools Across India
+    <section className="bg-surface border-y border-surface/80 py-5 overflow-hidden">
+      <div className="flex items-center gap-0">
+        {/* Static label */}
+        <div className="shrink-0 px-6 sm:px-10 border-r border-text-secondary/15 mr-6">
+          <p className="text-text-secondary text-xs font-bold uppercase tracking-widest whitespace-nowrap">
+            Trusted Partners
           </p>
+        </div>
 
-          {/* Divider */}
-          <div className="hidden sm:block h-6 w-px bg-text-secondary/20 shrink-0" />
+        {/* Marquee track */}
+        <div className="relative flex-1 overflow-hidden">
+          {/* Fade edges */}
+          <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-surface to-transparent z-10 pointer-events-none" aria-hidden="true" />
+          <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-surface to-transparent z-10 pointer-events-none" aria-hidden="true" />
 
-          {/* Partner logos (text placeholders) */}
-          <div className="flex flex-wrap justify-center sm:justify-start items-center gap-6 sm:gap-8">
-            {partners.map((partner) => (
+          <div className="flex gap-10 animate-marquee w-max" aria-hidden="true">
+            {doubledPartners.map((partner, i) => (
               <span
-                key={partner}
-                className="text-text-secondary/60 text-sm font-semibold tracking-wide hover:text-text-secondary transition-colors duration-200"
+                key={`${partner}-${i}`}
+                className="text-text-secondary text-sm font-semibold tracking-wide whitespace-nowrap px-2"
               >
                 {partner}
               </span>
             ))}
           </div>
         </div>
-      </Container>
+
+        {/* Accessible non-animated list for screen readers */}
+        <ul className="sr-only">
+          {partners.map((partner) => (
+            <li key={partner}>{partner}</li>
+          ))}
+        </ul>
+      </div>
     </section>
   )
 }

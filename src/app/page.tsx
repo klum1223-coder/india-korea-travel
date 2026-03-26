@@ -10,7 +10,7 @@ import BlogFeedPlaceholder from '@/components/home/BlogFeedPlaceholder'
 
 export default function Home() {
   return (
-    <main>
+    <>
       <HeroSection />
       <TrustBar />
       <ValueProps />
@@ -20,6 +20,6 @@ export default function Home() {
       <StatsSection />
       <ForSchoolsCTA />
       <BlogFeedPlaceholder />
-    </main>
+    </>
   )
 }

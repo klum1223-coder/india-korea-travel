@@ -1,8 +1,16 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import Container from '@/components/ui/Container'
 import SectionHeading from '@/components/ui/SectionHeading'
 import Badge from '@/components/ui/Badge'
 import packagesData from '@/lib/data/packages.json'
+
+const packageImages: Record<string, string> = {
+  '5n6d-seoul-busan': '/images/experiences/busan-gamcheon.jpg',
+  '8d7n-stem-industry': '/images/experiences/ddp-seoul.jpg',
+  '9d8n-comprehensive': '/images/experiences/hanbok-group.jpg',
+  '10d9n-korea-jeju': '/images/experiences/jeju-aerial.jpg',
+}
 
 // Derive a display name from slug and duration
 function getPackageName(slug: string): string {
@@ -55,40 +63,61 @@ export default function PackageShowcase() {
   const featured = packagesData.slice(0, 3)
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-background" aria-labelledby="packages-heading">
       <Container>
         <SectionHeading
+          id="packages-heading"
           title="Our Tour Packages"
           subtitle="Carefully crafted educational itineraries for Indian schools — from short explorations to comprehensive immersions."
           align="center"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+        {/* 1 col on mobile, 2 on sm-md, 3 on lg+ */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
           {featured.map((pkg) => {
             const name = getPackageName(pkg.slug)
             const startingPrice = getStartingPrice(pkg.pricing)
+            const imageUrl = packageImages[pkg.slug]
 
             return (
               <div
                 key={pkg.slug}
-                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 border border-surface flex flex-col"
+                className="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-200 flex flex-col"
               >
-                {/* Card header with gradient */}
-                <div className="bg-gradient-to-br from-primary to-primary/80 p-6 text-white relative">
+                {/* Card header with gradient + optional background image */}
+                <div className="p-6 text-white relative overflow-hidden bg-gradient-to-br from-primary to-primary/85">
+                  {imageUrl && (
+                    <Image
+                      src={imageUrl}
+                      alt={name}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  )}
+                  {/* Gradient overlay on top of image */}
+                  {imageUrl && (
+                    <div
+                      className="absolute inset-0 bg-gradient-to-br from-primary/85 to-primary/75"
+                      aria-hidden="true"
+                    />
+                  )}
                   {pkg.badge && (
-                    <div className="absolute top-4 right-4">
+                    <div className="absolute top-4 right-4 z-20">
                       <Badge variant="default">{pkg.badge}</Badge>
                     </div>
                   )}
-                  <p className="text-white/60 text-xs font-semibold uppercase tracking-wider mb-1">
-                    {pkg.duration}
-                  </p>
-                  <h3 className="font-poppins text-xl font-bold leading-snug pr-20">
-                    {name}
-                  </h3>
-                  <p className="text-white/70 text-xs mt-1">
-                    {pkg.cities.join(' · ')}
-                  </p>
+                  <div className="relative z-10">
+                    <p className="text-white/80 text-xs font-semibold uppercase tracking-wider mb-1">
+                      {pkg.duration}
+                    </p>
+                    <h3 className="font-poppins text-xl font-bold leading-snug pr-20">
+                      {name}
+                    </h3>
+                    <p className="text-white/80 text-xs mt-1">
+                      {pkg.cities.join(' · ')}
+                    </p>
+                  </div>
                 </div>
 
                 {/* Card body */}
@@ -104,31 +133,31 @@ export default function PackageShowcase() {
                         key={highlight}
                         className="flex items-start gap-2 text-xs text-text-secondary"
                       >
-                        <span className="text-secondary font-bold mt-0.5 shrink-0">✓</span>
+                        <span className="text-secondary font-bold mt-0.5 shrink-0" aria-hidden="true">✓</span>
                         {highlight}
                       </li>
                     ))}
                     {pkg.highlights.length > 3 && (
-                      <li className="text-xs text-text-secondary/60 pl-4">
+                      <li className="text-xs text-text-secondary/80 pl-4">
                         +{pkg.highlights.length - 3} more highlights
                       </li>
                     )}
                   </ul>
 
                   {/* Price and CTA */}
-                  <div className="flex items-center justify-between mt-auto pt-4 border-t border-surface">
+                  <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
                     {startingPrice != null && (
                       <div>
                         <p className="text-xs text-text-secondary">From</p>
                         <p className="font-poppins text-xl font-bold text-primary">
                           ${startingPrice.toLocaleString()}
                         </p>
-                        <p className="text-xs text-text-secondary/60">per person</p>
+                        <p className="text-xs text-text-secondary/80">per person</p>
                       </div>
                     )}
                     <Link
                       href={`/packages/${pkg.slug}`}
-                      className="inline-flex items-center justify-center font-semibold transition-colors duration-200 bg-secondary text-white hover:bg-secondary/90 shadow-sm px-4 py-2 text-sm rounded-lg"
+                      className="inline-flex items-center justify-center font-semibold transition-all duration-200 bg-secondary text-white hover:bg-secondary/90 hover:scale-[1.04] shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/60 focus-visible:ring-offset-2 px-4 py-2 text-sm rounded-lg"
                     >
                       View Details
                     </Link>
@@ -143,7 +172,7 @@ export default function PackageShowcase() {
         <div className="text-center">
           <Link
             href="/packages"
-            className="inline-flex items-center justify-center font-semibold transition-colors duration-200 border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-white px-7 py-3 text-base rounded-xl"
+            className="inline-flex items-center justify-center font-semibold transition-all duration-200 border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-white hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 px-7 py-3 text-base rounded-xl"
           >
             Compare All Packages →
           </Link>

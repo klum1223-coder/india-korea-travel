@@ -1,7 +1,7 @@
 import { clsx } from "@/lib/cn";
 import React from "react";
 
-type ButtonVariant = "primary" | "outline" | "ghost";
+type ButtonVariant = "primary" | "outline" | "ghost" | "outline-white";
 type ButtonSize = "sm" | "md" | "lg";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -14,11 +14,13 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "bg-secondary text-white hover:bg-secondary/90 active:bg-secondary/80 shadow-sm",
+    "bg-secondary text-white hover:bg-secondary/90 active:bg-secondary/80 shadow-md hover:shadow-lg hover:scale-[1.03] focus-visible:ring-secondary/70",
   outline:
-    "border-2 border-secondary text-secondary bg-transparent hover:bg-secondary hover:text-white",
+    "border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-white focus-visible:ring-primary/50",
+  "outline-white":
+    "border-2 border-white text-white bg-transparent hover:bg-white hover:text-primary focus-visible:ring-white/60",
   ghost:
-    "bg-transparent text-primary hover:bg-primary/10 active:bg-primary/20",
+    "bg-transparent text-primary hover:bg-primary/10 active:bg-primary/20 focus-visible:ring-primary/40",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
@@ -36,7 +38,7 @@ export default function Button({
   ...rest
 }: ButtonProps) {
   const classes = clsx(
-    "inline-flex items-center justify-center font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/60 disabled:opacity-50 disabled:pointer-events-none cursor-pointer",
+    "inline-flex items-center justify-center font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none cursor-pointer",
     variantClasses[variant],
     sizeClasses[size],
     className

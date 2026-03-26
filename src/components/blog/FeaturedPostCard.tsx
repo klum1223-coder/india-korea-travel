@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import Badge from '@/components/ui/Badge'
 import type { BlogPost } from '@/types'
 
@@ -15,6 +16,10 @@ function categoryBadgeVariant(cat: BlogPost['category']): 'default' | 'success' 
   if (cat === 'todays-korea') return 'success'
   if (cat === 'k-culture') return 'info'
   return 'default'
+}
+
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]*>/g, '')
 }
 
 interface FeaturedPostCardProps {
@@ -40,24 +45,27 @@ export default function FeaturedPostCard({ post }: FeaturedPostCardProps) {
   return (
     <article className="rounded-2xl overflow-hidden border border-surface bg-white shadow-sm hover:shadow-md transition-shadow duration-300">
       <div className="grid grid-cols-1 md:grid-cols-2">
-        {/* Placeholder image area */}
-        <div className="bg-gradient-to-br from-primary/10 via-surface to-secondary/10 aspect-video md:aspect-auto md:min-h-64 flex items-center justify-center relative">
-          <div className="text-center px-6">
-            <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-primary/10 flex items-center justify-center">
-              <svg className="w-8 h-8 text-primary/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
+        {/* Image area */}
+        <div className="aspect-video md:aspect-auto md:min-h-64 relative overflow-hidden">
+          {post.thumbnail ? (
+            <Image
+              src={post.thumbnail}
+              alt={post.title}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          ) : (
+            <div className="bg-gradient-to-br from-primary/10 via-surface to-secondary/10 w-full h-full flex items-center justify-center">
+              <div className="text-center px-6">
+                <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-primary/10 flex items-center justify-center">
+                  <svg className="w-8 h-8 text-primary/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <span className="text-xs font-medium text-text-secondary/50 uppercase tracking-widest">Featured Story</span>
+              </div>
             </div>
-            <span className="text-xs font-medium text-text-secondary/50 uppercase tracking-widest">Featured Story</span>
-          </div>
-          {/* AI badge */}
-          {post.isAIGenerated && (
-            <span className="absolute top-3 left-3 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary/90 text-white text-xs font-bold">
-              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
-              </svg>
-              AI Live
-            </span>
           )}
         </div>
 
@@ -77,7 +85,7 @@ export default function FeaturedPostCard({ post }: FeaturedPostCardProps) {
             </h3>
 
             <p className="text-text-secondary text-sm leading-relaxed line-clamp-3 mb-4">
-              {post.excerpt}
+              {stripHtml(post.excerpt)}
             </p>
 
             {/* Tags */}

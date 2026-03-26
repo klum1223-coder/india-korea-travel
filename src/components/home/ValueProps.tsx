@@ -36,19 +36,21 @@ const valueProps = [
 
 export default function ValueProps() {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-background" aria-labelledby="value-props-heading">
       <Container>
         <SectionHeading
+          id="value-props-heading"
           title="Why Schools Choose Us"
           subtitle="Every element of our program is designed with educators in mind — from itinerary to meals to safety."
           align="center"
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {valueProps.map((prop) => (
+          {valueProps.map((prop, i) => (
             <div
               key={prop.title}
-              className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 border border-surface"
+              className="card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-200 focus-within:ring-2 focus-within:ring-accent/40"
+              style={{ animationDelay: `${i * 50}ms` }}
             >
               <div className="text-4xl mb-4" aria-hidden="true">
                 {prop.emoji}

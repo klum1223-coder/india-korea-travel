@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins, Inter, DM_Sans } from "next/font/google";
+import { Poppins, Inter } from "next/font/google";
 import "@/styles/globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -13,11 +13,6 @@ const poppins = Poppins({
 
 const inter = Inter({
   variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
   subsets: ["latin"],
 });
 
@@ -67,13 +62,28 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${inter.variable} ${dmSans.variable}`}
+      className={`${poppins.variable} ${inter.variable}`}
     >
       <body className="min-h-screen bg-background text-text-primary font-inter antialiased">
+        {/* Skip to content — keyboard / screen-reader accessibility */}
+        <a href="#main-content" className="skip-to-content">
+          Skip to main content
+        </a>
+
         <Header />
-        <main className="pt-[calc(2.5rem+4rem)] lg:pt-[calc(2rem+4rem)]">
+
+        {/*
+          Offset for the fixed header.
+          Mobile: only the nav bar (--header-nav-height = 4rem).
+          Desktop (md+): contact bar + nav (--header-height-desktop).
+        */}
+        <div
+          id="main-content"
+          className="main-offset"
+        >
           {children}
-        </main>
+        </div>
+
         <Footer />
         <WhatsAppFAB />
       </body>

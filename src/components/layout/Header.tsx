@@ -29,13 +29,26 @@ export default function Header() {
     setMenuOpen(false)
   }, [pathname])
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.classList.add('menu-open')
+    } else {
+      document.body.classList.remove('menu-open')
+    }
+    return () => document.body.classList.remove('menu-open')
+  }, [menuOpen])
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-shadow duration-200 ${
-        scrolled ? 'shadow-md' : 'shadow-sm'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'shadow-md'
+          : 'shadow-sm'
       }`}
+      aria-label="Site header"
     >
-      {/* Top contact bar */}
+      {/* Top contact bar — desktop only */}
       <div className="bg-primary text-white text-xs py-1.5 px-4 hidden md:block">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <span className="flex items-center gap-4">
@@ -49,19 +62,27 @@ export default function Header() {
       </div>
 
       {/* Main nav */}
-      <nav className="bg-white/95 backdrop-blur-sm border-b border-gray-100">
+      <nav
+        className={`border-b border-gray-100 transition-colors duration-300 ${
+          scrolled
+            ? 'bg-white/98 backdrop-blur-md'
+            : 'bg-white/95 backdrop-blur-sm'
+        }`}
+        aria-label="Primary navigation"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link
               href="/"
               className="font-poppins font-bold text-xl text-primary tracking-tight shrink-0"
+              aria-label="Discover Korea — home"
             >
               Discover Korea
             </Link>
 
             {/* Desktop nav links */}
-            <ul className="hidden lg:flex items-center gap-1">
+            <ul className="hidden lg:flex items-center gap-1" role="list">
               {navLinks.map(({ label, href }) => {
                 const isActive =
                   href === '/'
@@ -71,6 +92,7 @@ export default function Header() {
                   <li key={href}>
                     <Link
                       href={href}
+                      aria-current={isActive ? 'page' : undefined}
                       className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-150 ${
                         isActive
                           ? 'text-primary bg-primary/10 font-semibold'
@@ -94,6 +116,7 @@ export default function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1.5 bg-[#25D366] hover:bg-[#20b958] text-white text-sm font-medium px-3 py-1.5 rounded-full transition-colors duration-150"
+                aria-label="Chat on WhatsApp"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -112,8 +135,9 @@ export default function Header() {
             {/* Mobile hamburger */}
             <button
               type="button"
-              aria-label="Toggle navigation menu"
+              aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
               onClick={() => setMenuOpen((v) => !v)}
               className="lg:hidden p-2 rounded-md text-text-secondary hover:text-primary hover:bg-primary/5 transition-colors"
             >
@@ -154,9 +178,13 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile dropdown menu */}
+        {/* Mobile dropdown menu — animate-slide-down on open */}
         {menuOpen && (
-          <div className="lg:hidden border-t border-gray-100 bg-white">
+          <div
+            id="mobile-menu"
+            className="lg:hidden border-t border-gray-100 bg-white animate-slide-down"
+            aria-label="Mobile navigation"
+          >
             <div className="px-4 pt-2 pb-4 space-y-1">
               {navLinks.map(({ label, href }) => {
                 const isActive =
@@ -167,6 +195,7 @@ export default function Header() {
                   <Link
                     key={href}
                     href={href}
+                    aria-current={isActive ? 'page' : undefined}
                     className={`block px-3 py-2.5 rounded-md text-sm font-medium transition-colors duration-150 ${
                       isActive
                         ? 'text-primary bg-primary/10 font-semibold'
@@ -177,6 +206,7 @@ export default function Header() {
                   </Link>
                 )
               })}
+
               {/* Mobile contact bar */}
               <div className="pt-3 border-t border-gray-100 space-y-2">
                 <p className="text-xs text-text-secondary px-3">
@@ -188,6 +218,7 @@ export default function Header() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-1.5 bg-[#25D366] hover:bg-[#20b958] text-white text-sm font-medium px-4 py-2 rounded-full transition-colors"
+                    aria-label="Chat on WhatsApp"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
