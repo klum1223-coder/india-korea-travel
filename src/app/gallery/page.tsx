@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
@@ -10,20 +11,118 @@ export const metadata: Metadata = {
     "See Korea through the eyes of our students — photos from educational tours across Seoul, Busan, Daejeon, and beyond.",
 };
 
-const placeholderItems = [
-  { label: "Seoul", bg: "bg-blue-100", textColor: "text-blue-700" },
-  { label: "Busan", bg: "bg-cyan-100", textColor: "text-cyan-700" },
-  { label: "K-Culture", bg: "bg-purple-100", textColor: "text-purple-700" },
-  { label: "DMZ", bg: "bg-zinc-100", textColor: "text-zinc-700" },
-  { label: "University", bg: "bg-indigo-100", textColor: "text-indigo-700" },
-  { label: "Hanbok", bg: "bg-rose-100", textColor: "text-rose-700" },
-  { label: "K-Pop", bg: "bg-pink-100", textColor: "text-pink-700" },
-  { label: "Seoul", bg: "bg-sky-100", textColor: "text-sky-700" },
-  { label: "Busan Temple", bg: "bg-amber-100", textColor: "text-amber-700" },
-  { label: "Industrial", bg: "bg-slate-100", textColor: "text-slate-700" },
-  { label: "Jeju", bg: "bg-green-100", textColor: "text-green-700" },
-  { label: "K-Food", bg: "bg-orange-100", textColor: "text-orange-700" },
+const galleryItems = [
+  {
+    src: "/images/hero/seoul-skyline.jpg",
+    alt: "Seoul skyline at night with glittering city lights",
+    label: "Seoul",
+    category: "Sightseeing",
+  },
+  {
+    src: "/images/experiences/gyeongbok-palace.jpg",
+    alt: "Gyeongbokgung Palace traditional architecture",
+    label: "Cultural",
+    category: "Cultural",
+  },
+  {
+    src: "/images/blog/cherry-blossoms-seoul.jpg",
+    alt: "Cherry blossoms blooming along a Seoul street",
+    label: "Seasonal",
+    category: "Seasonal",
+  },
+  {
+    src: "/images/experiences/hanbok-experience.jpg",
+    alt: "Woman wearing traditional Korean hanbok",
+    label: "Hanbok",
+    category: "Cultural",
+  },
+  {
+    src: "/images/experiences/busan-gamcheon.jpg",
+    alt: "Gamcheon Culture Village colourful hillside houses in Busan",
+    label: "Busan",
+    category: "Sightseeing",
+  },
+  {
+    src: "/images/blog/korean-education.jpg",
+    alt: "Students exploring Gyeongbokgung Palace on an educational tour",
+    label: "Education",
+    category: "Education",
+  },
+  {
+    src: "/images/blog/hongdae-night.jpg",
+    alt: "Hongdae neon-lit street scene at night",
+    label: "K-Culture",
+    category: "K-Culture",
+  },
+  {
+    src: "/images/experiences/hanbok-group.jpg",
+    alt: "Group of students in traditional hanbok",
+    label: "Hanbok",
+    category: "Cultural",
+  },
+  {
+    src: "/images/experiences/seoul-night.jpg",
+    alt: "Seoul city skyline at sunset",
+    label: "Seoul",
+    category: "Sightseeing",
+  },
+  {
+    src: "/images/experiences/cherry-night.jpg",
+    alt: "Cherry blossoms illuminated at night",
+    label: "Seasonal",
+    category: "Seasonal",
+  },
+  {
+    src: "/images/experiences/ddp-seoul.jpg",
+    alt: "DDP (Dongdaemun Design Plaza) futuristic architecture in Seoul",
+    label: "Architecture",
+    category: "Sightseeing",
+  },
+  {
+    src: "/images/experiences/jeju-aerial.jpg",
+    alt: "Jeju Island aerial view with coastal landscape",
+    label: "Jeju",
+    category: "Sightseeing",
+  },
+  {
+    src: "/images/experiences/seoul-namsan.jpg",
+    alt: "Namsan Tower and Seoul night cityscape",
+    label: "Seoul",
+    category: "Sightseeing",
+  },
+  {
+    src: "/images/blog/korea-university.jpg",
+    alt: "University campus building in Korea",
+    label: "University",
+    category: "Education",
+  },
+  {
+    src: "/images/experiences/hanbok-women.jpg",
+    alt: "Women in colourful traditional hanbok attire",
+    label: "K-Culture",
+    category: "Cultural",
+  },
+  {
+    src: "/images/experiences/ddp-interior.jpg",
+    alt: "DDP interior with sweeping modern design",
+    label: "Architecture",
+    category: "Sightseeing",
+  },
+  {
+    src: "/images/blog/vegetarian-korea.jpg",
+    alt: "Korean market stalls with fresh produce",
+    label: "K-Food",
+    category: "K-Culture",
+  },
 ];
+
+const categoryColors: Record<string, string> = {
+  Cultural: "bg-rose-100 text-rose-700",
+  Education: "bg-indigo-100 text-indigo-700",
+  Sightseeing: "bg-blue-100 text-blue-700",
+  "K-Culture": "bg-purple-100 text-purple-700",
+  Seasonal: "bg-green-100 text-green-700",
+};
 
 export default function GalleryPage() {
   return (
@@ -50,49 +149,33 @@ export default function GalleryPage() {
         <Container>
           <SectionHeading
             title="Photos from the Field"
-            subtitle="Real moments from our student groups exploring Korea — photos coming soon"
+            subtitle="Real moments and iconic Korean destinations from our educational tours"
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {placeholderItems.map((item, index) => (
+            {galleryItems.map((item, index) => (
               <div
-                key={`${item.label}-${index}`}
-                className={`aspect-video rounded-2xl ${item.bg} flex flex-col items-center justify-center gap-3 border border-surface shadow-sm`}
+                key={`${item.src}-${index}`}
+                className="relative aspect-video rounded-2xl overflow-hidden border border-surface shadow-sm group"
               >
-                <svg
-                  className={`w-10 h-10 opacity-40 ${item.textColor}`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                  />
-                </svg>
-                <div className="text-center">
-                  <p className={`text-xs font-semibold uppercase tracking-widest ${item.textColor} opacity-70 mb-1`}>
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                {/* Category badge overlay */}
+                <div className="absolute bottom-3 left-3">
+                  <span
+                    className={`inline-block px-2.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wide ${
+                      categoryColors[item.category] ?? "bg-zinc-100 text-zinc-700"
+                    } opacity-90`}
+                  >
                     {item.label}
-                  </p>
-                  <p className={`text-sm font-medium ${item.textColor}`}>
-                    Photo Coming Soon
-                  </p>
+                  </span>
                 </div>
               </div>
             ))}
-          </div>
-
-          {/* Gallery note */}
-          <div className="mt-10 text-center">
-            <p className="text-text-secondary text-sm max-w-lg mx-auto">
-              We are curating photos from our recent tours. Check back soon — or{" "}
-              <Link href="/contact" className="text-secondary underline font-medium hover:text-secondary/80 transition-colors">
-                contact us
-              </Link>{" "}
-              to see samples from past trips.
-            </p>
           </div>
         </Container>
       </section>

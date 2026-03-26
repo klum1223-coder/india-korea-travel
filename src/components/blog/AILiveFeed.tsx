@@ -155,6 +155,13 @@ export default function AILiveFeed({ posts, fullPage = false }: AILiveFeedProps)
             </Link>
             <button
               type="button"
+              onClick={() => {
+                const newsletterInput = document.querySelector<HTMLElement>('footer input[type="email"]')
+                if (newsletterInput) {
+                  newsletterInput.scrollIntoView({ behavior: 'smooth', block: 'center' })
+                  newsletterInput.focus()
+                }
+              }}
               className="inline-flex items-center gap-1.5 px-6 py-3 rounded-xl border-2 border-secondary text-secondary font-semibold text-base hover:bg-secondary hover:text-white transition-colors duration-200"
             >
               Subscribe for Updates →

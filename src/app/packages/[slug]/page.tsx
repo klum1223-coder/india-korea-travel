@@ -267,8 +267,8 @@ export default async function PackageDetailPage({
               <Button asChild size="lg">
                 <Link href="/contact">Request a Quote</Link>
               </Button>
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
-                Download Itinerary
+              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary" asChild>
+                <Link href="/contact">Request Itinerary</Link>
               </Button>
             </div>
           </div>

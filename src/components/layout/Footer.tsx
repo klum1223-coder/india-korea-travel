@@ -12,10 +12,10 @@ const quickLinks = [
 ]
 
 const tourPackages = [
-  { label: '5N6D Essential Korea', href: '/packages/5n6d-essential' },
-  { label: '8D7N STEM Discovery', href: '/packages/8d7n-stem' },
-  { label: '9D8N Premium Experience', href: '/packages/9d8n-premium' },
-  { label: '10D9N Ultimate Journey', href: '/packages/10d9n-ultimate' },
+  { label: '5N6D Seoul & Busan', href: '/packages/5n6d-seoul-busan' },
+  { label: '8D7N STEM & Industry', href: '/packages/8d7n-stem-industry' },
+  { label: '9D8N Comprehensive Korea', href: '/packages/9d8n-comprehensive' },
+  { label: '10D9N Korea & Jeju', href: '/packages/10d9n-korea-jeju' },
 ]
 
 const socialLinks = [

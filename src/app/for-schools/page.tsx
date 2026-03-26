@@ -166,7 +166,7 @@ export default function ForSchoolsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg">
-                <Link href="#">Download Program Proposal</Link>
+                <Link href="/contact">Request Program Proposal</Link>
               </Button>
               <Button
                 variant="outline"
@@ -425,11 +425,11 @@ export default function ForSchoolsPage() {
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {downloadResources.map((resource) => (
-              <a
+              <Link
                 key={resource.title}
-                href="#"
+                href="/contact"
                 className="bg-white rounded-2xl border border-surface p-6 shadow-sm flex flex-col items-center text-center gap-4 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group"
-                aria-label={`Download ${resource.title}`}
+                aria-label={`Contact us for ${resource.title}`}
               >
                 <div className="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
                   {resource.icon}
@@ -440,11 +440,11 @@ export default function ForSchoolsPage() {
                 </div>
                 <span className="text-xs font-semibold text-secondary flex items-center gap-1">
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  Download PDF
+                  Contact Us
                 </span>
-              </a>
+              </Link>
             ))}
           </div>
         </Container>

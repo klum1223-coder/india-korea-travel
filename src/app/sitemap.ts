@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import blogPosts from "@/lib/data/blog-posts.json";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://discoverkorea.edu";
@@ -112,5 +113,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.6,
     },
+    ...blogPosts.map((post) => ({
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: new Date(post.publishedAt),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
   ];
 }

@@ -143,6 +143,49 @@ h1, h2, h3, h4, h5, h6 {
   display: none;             /* Chrome / Safari */
 }
 
+/* ─── Prose content (blog post body) ────────────────────── */
+.prose-content p {
+  margin-bottom: 1.25em;
+  line-height: 1.75;
+}
+
+.prose-content a {
+  color: var(--color-secondary);
+  text-decoration: underline;
+}
+.prose-content a:hover {
+  color: color-mix(in srgb, var(--color-secondary) 80%, black);
+}
+
+.prose-content strong {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.prose-content ul,
+.prose-content ol {
+  margin-bottom: 1.25em;
+  padding-left: 1.5em;
+}
+
+.prose-content li {
+  margin-bottom: 0.5em;
+}
+
+.prose-content h2,
+.prose-content h3 {
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  font-weight: 700;
+  margin-top: 2em;
+  margin-bottom: 0.75em;
+}
+
+.prose-content blockquote {
+  border-left: 4px solid var(--color-secondary);
+  padding-left: 1em;
+  font-style: italic;
+}
+
 /* ─── Horizontal carousel scroll-snap ───────────────────── */
 .carousel-track {
   display: flex;
