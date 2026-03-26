@@ -13,71 +13,71 @@
 
 ### 긴급 — 404 에러 수정
 
-- [ ] **A-1. Footer 패키지 링크 slug 수정** (404 발생)
+- [x] **A-1. Footer 패키지 링크 slug 수정** (404 발생)
   - 파일: `src/components/layout/Footer.tsx` 라인 15-18
   - 현재: `/packages/5n6d-essential`, `8d7n-stem`, `9d8n-premium`, `10d9n-ultimate`
   - 수정: `/packages/5n6d-seoul-busan`, `8d7n-stem-industry`, `9d8n-comprehensive`, `10d9n-korea-jeju`
 
-- [ ] **A-2. 블로그 relatedPackageSlug 수정** (404 발생)
+- [x] **A-2. 블로그 relatedPackageSlug 수정** (404 발생)
   - 파일: `src/lib/data/blog-posts.json` 라인 14, 30, 46, 62, 78
   - 현재: `seoul-gyeongju-jeju` (3개), `5n6d-seoul` (2개) — 모두 존재하지 않는 slug
   - 수정: 실제 패키지 slug로 교체 (`5n6d-seoul-busan`, `9d8n-comprehensive` 등)
 
-- [ ] **A-3. Privacy Policy / Terms 페이지 생성** (404 발생)
+- [x] **A-3. Privacy Policy / Terms 페이지 생성** (404 발생)
   - 파일: `src/app/privacy-policy/page.tsx`, `src/app/terms/page.tsx` (신규)
   - Footer에서 링크하고 있으나 페이지가 없음
   - 최소한의 템플릿 페이지라도 생성
 
 ### 높음 — 스타일/기능 수정
 
-- [ ] **A-4. 블로그 본문 prose 스타일 정의**
+- [x] **A-4. 블로그 본문 prose 스타일 정의**
   - 파일: `src/styles/globals.css`
   - 문제: `.prose-content` CSS 클래스가 미정의 → 블로그 본문 `<p>`, `<a>`, `<strong>`, `<ul>` 등에 스타일 없음
   - 수정: `.prose-content` 스타일 정의 (단락 간격, 링크 색상, 볼드, 리스트 등)
 
-- [ ] **A-5. 블로그 공유 버튼 기능 구현**
+- [x] **A-5. 블로그 공유 버튼 기능 구현**
   - 파일: `src/components/blog/BlogPostContent.tsx` 라인 141-175
   - 문제: WhatsApp/Facebook/Copy Link 버튼이 `<div role="button">` — onClick 없음
   - 수정: `'use client'` 전환 + 실제 공유 URL 연결 + 클립보드 복사 기능
 
-- [ ] **A-6. 블로그 상세 페이지 히어로 이미지 표시**
+- [x] **A-6. 블로그 상세 페이지 히어로 이미지 표시**
   - 파일: `src/components/blog/BlogPostContent.tsx` 라인 99-103
   - 문제: thumbnail 이미지 경로가 있는데도 항상 플레이스홀더 표시
   - 수정: `post.thumbnail`이 있으면 `<Image>` 컴포넌트로 렌더링
 
-- [ ] **A-7. For Schools "Download" 버튼 href 수정**
+- [x] **A-7. For Schools "Download" 버튼 href 수정**
   - 파일: `src/app/for-schools/page.tsx` 라인 169, 431
   - 문제: Hero CTA + 4개 다운로드 카드 모두 `href="#"`
   - 수정: `/contact` 페이지로 연결 (실제 PDF 파일이 준비될 때까지)
 
-- [ ] **A-8. Packages 상세 "Download Itinerary" 버튼 연결**
+- [x] **A-8. Packages 상세 "Download Itinerary" 버튼 연결**
   - 파일: `src/app/packages/[slug]/page.tsx` 라인 271
   - 문제: `<Button>` — href/onClick 없음
   - 수정: `/contact` 페이지로 연결
 
-- [ ] **A-9. Sitemap에 블로그 포스트 URL 추가**
+- [x] **A-9. Sitemap에 블로그 포스트 URL 추가**
   - 파일: `src/app/sitemap.ts`
   - 문제: 개별 블로그 포스트 5개 URL이 sitemap에 없음
   - 수정: `blog-posts.json`을 읽어 동적으로 추가
 
-- [ ] **A-10. AILiveFeed "Subscribe for Updates" 버튼 연결**
+- [x] **A-10. AILiveFeed "Subscribe for Updates" 버튼 연결**
   - 파일: `src/components/blog/AILiveFeed.tsx` 라인 157-161
   - 문제: `<button>` — onClick 없음
   - 수정: Footer의 뉴스레터 섹션으로 스크롤 이동 또는 모달
 
-- [ ] **A-11. Gallery 페이지 — 기존 이미지라도 활용**
+- [x] **A-11. Gallery 페이지 — 기존 이미지 17장 적용**
   - 파일: `src/app/gallery/page.tsx`
   - 문제: 12개 색상 블록 placeholder만 있음
   - 수정: `public/images/experiences/` 이미지들로 실제 갤러리 구성
 
 ### 중간 — 개선 사항
 
-- [ ] **A-12. 이메일 주소 통일**
+- [x] **A-12. 이메일 주소 통일**
   - Header.tsx, Footer.tsx → `info@discoverkorea.edu`
   - contact/page.tsx → `info@discoverkorea.in`
   - 하나로 통일 필요
 
-- [ ] **A-13. 도메인 URL 통일**
+- [x] **A-13. 도메인 URL 통일**
   - sitemap.ts → `discoverkorea.edu`
   - naver publisher → `koreaedu.tours`
   - 환경변수 `NEXT_PUBLIC_SITE_URL`로 통일
