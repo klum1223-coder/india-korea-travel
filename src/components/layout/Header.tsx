@@ -56,7 +56,7 @@ export default function Header() {
             <span>📧 info@discoverkorea.edu</span>
           </span>
           <span className="text-white/70 text-xs">
-            Trusted by 500+ Indian students since 2020
+            Trusted by 50+ schools &amp; 1000+ students since 2020
           </span>
         </div>
       </div>

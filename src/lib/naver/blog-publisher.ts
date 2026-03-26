@@ -105,7 +105,7 @@ export function convertToNaverHTML(post: BlogPost): string {
   // The body is already HTML (generated with <p> tags by the AI pipeline).
   // We wrap it and append a footer with a homepage CTA.
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.koreaedu.tours'
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://discoverkorea.edu'
   const postUrl = `${siteUrl}/blog/${post.slug}`
 
   const tagsHtml =

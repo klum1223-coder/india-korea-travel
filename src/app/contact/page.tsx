@@ -401,7 +401,7 @@ export default function ContactPage() {
                   WhatsApp Chat Now
                 </a>
                 <a
-                  href="mailto:info@discoverkorea.in"
+                  href="mailto:info@discoverkorea.edu"
                   className="inline-flex items-center justify-center gap-2 border-2 border-secondary text-secondary hover:bg-secondary hover:text-white font-semibold text-sm px-4 py-2.5 rounded-lg transition-colors"
                 >
                   Send Email

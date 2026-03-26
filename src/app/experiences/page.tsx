@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Badge from "@/components/ui/Badge";
@@ -150,6 +151,20 @@ export default function ExperiencesPage() {
                   key={exp.id}
                   className="bg-white rounded-2xl border border-surface shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col"
                 >
+                  {/* Card image */}
+                  <div className="relative w-full h-40 bg-surface overflow-hidden">
+                    <Image
+                      src={exp.image}
+                      alt={exp.name}
+                      fill
+                      className="object-cover"
+                      onError={(e) => {
+                        const target = e.currentTarget as HTMLImageElement;
+                        target.style.display = 'none';
+                      }}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  </div>
                   {/* Card header */}
                   <div className="p-6 flex-1 flex flex-col gap-3">
                     {/* Badges row */}
