@@ -1,6 +1,7 @@
 "use client"
 
 import Link from 'next/link'
+import { useState, type FormEvent } from 'react'
 
 const quickLinks = [
   { label: 'Why Korea', href: '/why-korea' },
@@ -48,6 +49,71 @@ function FacebookIcon() {
   )
 }
 
+function NewsletterForm() {
+  const [email, setEmail] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [success, setSuccess] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setLoading(true)
+    setError(null)
+    setSuccess(false)
+
+    try {
+      const res = await fetch('/api/newsletter/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email.trim() }),
+      })
+
+      const data = (await res.json()) as { success: boolean; message?: string; error?: string }
+
+      if (!res.ok || !data.success) {
+        setError(data.error ?? 'Something went wrong. Please try again.')
+      } else {
+        setSuccess(true)
+        setEmail('')
+      }
+    } catch {
+      setError('Network error. Please try again.')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  return (
+    <form className="flex flex-col w-full sm:w-auto gap-2" onSubmit={handleSubmit}>
+      <div className="flex w-full sm:w-auto gap-2">
+        <input
+          type="email"
+          placeholder="Your email address"
+          aria-label="Email address for newsletter"
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          disabled={loading}
+          className="flex-1 sm:w-64 px-4 py-2.5 rounded-lg text-text-primary text-sm placeholder-text-secondary bg-white focus:outline-none focus:ring-2 focus:ring-secondary disabled:opacity-60"
+        />
+        <button
+          type="submit"
+          disabled={loading}
+          className="bg-secondary hover:bg-secondary/90 text-white font-semibold px-5 py-2.5 rounded-lg text-sm transition-colors duration-150 shrink-0 disabled:opacity-60 disabled:cursor-not-allowed"
+        >
+          {loading ? 'Subscribing...' : 'Subscribe'}
+        </button>
+      </div>
+      {success && (
+        <p className="text-sm text-green-300 mt-1">Thank you for subscribing!</p>
+      )}
+      {error && (
+        <p className="text-sm text-red-300 mt-1">{error}</p>
+      )}
+    </form>
+  )
+}
+
 export default function Footer() {
   return (
     <footer className="bg-primary text-white">
@@ -59,24 +125,7 @@ export default function Footer() {
               <p className="font-poppins font-semibold text-lg">Stay updated on Korea travel</p>
               <p className="text-white/70 text-sm mt-0.5">Get exclusive offers, itinerary ideas & scholarship news.</p>
             </div>
-            <form
-              className="flex w-full sm:w-auto gap-2"
-              onSubmit={(e) => e.preventDefault()}
-            >
-              <input
-                type="email"
-                placeholder="Your email address"
-                aria-label="Email address for newsletter"
-                required
-                className="flex-1 sm:w-64 px-4 py-2.5 rounded-lg text-text-primary text-sm placeholder-text-secondary bg-white focus:outline-none focus:ring-2 focus:ring-secondary"
-              />
-              <button
-                type="submit"
-                className="bg-secondary hover:bg-secondary/90 text-white font-semibold px-5 py-2.5 rounded-lg text-sm transition-colors duration-150 shrink-0"
-              >
-                Subscribe
-              </button>
-            </form>
+            <NewsletterForm />
           </div>
         </div>
       </div>

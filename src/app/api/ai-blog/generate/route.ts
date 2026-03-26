@@ -4,6 +4,11 @@ import { generateBlogPost, getCurrentSeason } from '@/lib/ai/content-generator'
 import { checkContentQuality } from '@/lib/ai/quality-check'
 import { addPost, getRecentPosts } from '@/lib/ai/blog-store'
 import type { BlogPost } from '@/types'
+import { getSubscribers } from '@/lib/newsletter/store'
+import {
+  sendNewsletter,
+  generateBlogNewsletterHtml,
+} from '@/lib/newsletter/sender'
 
 // ─── POST /api/ai-blog/generate ─────────────────────────────────────────────
 // Body: { contentType: ContentType, topic?: string }
@@ -80,6 +85,20 @@ export async function POST(request: NextRequest) {
       { success: false, error: `Failed to save post: ${message}` },
       { status: 500 }
     )
+  }
+
+  // Send newsletter to subscribers (fire-and-forget — errors are logged, not fatal)
+  try {
+    const subscribers = await getSubscribers()
+    if (subscribers.length > 0) {
+      const { title, excerpt, slug } = result.post
+      const htmlContent = generateBlogNewsletterHtml({ title, excerpt, slug })
+      const subject = `New Article: ${title}`
+      const { sent, failed } = await sendNewsletter(subject, htmlContent, subscribers)
+      console.log(`[Newsletter] Post "${title}" — sent: ${sent}, failed: ${failed}`)
+    }
+  } catch (newsletterErr) {
+    console.error('[Newsletter] Failed to send newsletter:', newsletterErr)
   }
 
   return Response.json({ success: true, post: result.post }, { status: 201 })
