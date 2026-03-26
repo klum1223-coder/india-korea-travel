@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Badge from '@/components/ui/Badge'
 import ShareButtons from '@/components/blog/ShareButtons'
 import type { BlogPost } from '@/types'
+import { sanitizeHtml } from '@/lib/security/sanitize'
 
 const categoryLabels: Record<BlogPost['category'], string> = {
   'todays-korea': "Today's Korea",
@@ -120,7 +121,7 @@ export default function BlogPostContent({ post }: BlogPostContentProps) {
       {/* Body */}
       <div
         className="prose-content max-w-3xl mb-12"
-        dangerouslySetInnerHTML={{ __html: post.body }}
+        dangerouslySetInnerHTML={{ __html: sanitizeHtml(post.body) }}
       />
 
       {/* Related package CTA */}

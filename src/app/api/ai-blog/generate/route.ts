@@ -9,14 +9,62 @@ import {
   sendNewsletter,
   generateBlogNewsletterHtml,
 } from '@/lib/newsletter/sender'
+import { checkRateLimit, getClientIp } from '@/lib/security/rate-limiter'
 
 // ─── POST /api/ai-blog/generate ─────────────────────────────────────────────
 // Body: { contentType: ContentType, topic?: string }
 // Generates a blog post via AI, quality-checks it, and persists it.
+//
+// Authentication (required):
+//   Set AI_BLOG_API_SECRET in env.
+//   Pass header: Authorization: Bearer <secret>
+//   Without a valid secret, the endpoint returns 401.
+
+const VALID_CONTENT_TYPES: ContentType[] = [
+  'todays-korea',
+  'travel-story',
+  'seasonal',
+  'k-culture',
+  'student-tips',
+  'school-spotlight',
+]
 
 export async function POST(request: NextRequest) {
-  let body: { contentType?: ContentType; topic?: string }
+  // ── Auth guard ────────────────────────────────────────────────────────────
+  // Protects Anthropic API credits from unauthorised callers.
+  const secret = process.env.AI_BLOG_API_SECRET
+  if (!secret) {
+    // No secret configured → endpoint is disabled for safety
+    return Response.json(
+      { success: false, error: 'AI blog generation endpoint is not configured.' },
+      { status: 503 }
+    )
+  }
 
+  const authHeader = request.headers.get('authorization') ?? ''
+  const token = authHeader.replace(/^Bearer\s+/i, '').trim()
+  if (!token || token !== secret) {
+    return Response.json(
+      { success: false, error: 'Unauthorized.' },
+      { status: 401 }
+    )
+  }
+
+  // ── Rate limiting: 5 generations per hour per IP ──────────────────────────
+  const ip = getClientIp(request)
+  const rateLimit = checkRateLimit(`ai-blog-generate:${ip}`, 5, 60 * 60_000)
+  if (!rateLimit.allowed) {
+    return Response.json(
+      { success: false, error: 'Rate limit exceeded. Please try again later.' },
+      {
+        status: 429,
+        headers: { 'Retry-After': String(Math.ceil((rateLimit.resetAt - Date.now()) / 1000)) },
+      }
+    )
+  }
+
+  // ── Parse body ────────────────────────────────────────────────────────────
+  let body: { contentType?: ContentType; topic?: string }
   try {
     body = (await request.json()) as { contentType?: ContentType; topic?: string }
   } catch {
@@ -28,20 +76,11 @@ export async function POST(request: NextRequest) {
 
   const { contentType, topic } = body
 
-  const validContentTypes: ContentType[] = [
-    'todays-korea',
-    'travel-story',
-    'seasonal',
-    'k-culture',
-    'student-tips',
-    'school-spotlight',
-  ]
-
-  if (!contentType || !validContentTypes.includes(contentType)) {
+  if (!contentType || !VALID_CONTENT_TYPES.includes(contentType)) {
     return Response.json(
       {
         success: false,
-        error: `contentType is required and must be one of: ${validContentTypes.join(', ')}.`,
+        error: `contentType is required and must be one of: ${VALID_CONTENT_TYPES.join(', ')}.`,
       },
       { status: 400 }
     )
@@ -108,6 +147,7 @@ export async function POST(request: NextRequest) {
 // Query params:
 //   limit    – number of posts to return (default: 10)
 //   category – filter by BlogPost category
+// No auth required — reading posts is public.
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url)

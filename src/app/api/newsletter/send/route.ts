@@ -4,32 +4,52 @@ import {
   sendNewsletter,
   generateBlogNewsletterHtml,
 } from '@/lib/newsletter/sender'
+import { checkRateLimit, getClientIp } from '@/lib/security/rate-limiter'
 
 // ─── POST /api/newsletter/send ────────────────────────────────────────────────
 // Body: { title: string; excerpt: string; slug: string }
 // Sends a new-blog-post notification to all subscribers.
 //
-// Optional API key protection:
+// Authentication (required — not optional):
 //   Set NEWSLETTER_API_SECRET in env.
 //   Pass header: Authorization: Bearer <secret>
-//   If the env var is not set, the endpoint is unprotected (development).
+//   Requests without a valid secret are rejected with 401.
 
 export async function POST(request: NextRequest) {
-  // API key guard (optional)
+  // ── Auth: NEWSLETTER_API_SECRET is required ───────────────────────────────
   const secret = process.env.NEWSLETTER_API_SECRET
-  if (secret) {
-    const authHeader = request.headers.get('authorization') ?? ''
-    const token = authHeader.replace(/^Bearer\s+/i, '').trim()
-    if (token !== secret) {
-      return Response.json(
-        { success: false, error: 'Unauthorized.' },
-        { status: 401 }
-      )
-    }
+  if (!secret) {
+    // Secret not configured → endpoint is disabled
+    return Response.json(
+      { success: false, error: 'Newsletter send endpoint is not configured.' },
+      { status: 503 }
+    )
   }
 
-  let body: { title?: string; excerpt?: string; slug?: string }
+  const authHeader = request.headers.get('authorization') ?? ''
+  const token = authHeader.replace(/^Bearer\s+/i, '').trim()
+  if (!token || token !== secret) {
+    return Response.json(
+      { success: false, error: 'Unauthorized.' },
+      { status: 401 }
+    )
+  }
 
+  // ── Rate limiting: 10 sends per hour per IP (generous but bounded) ────────
+  const ip = getClientIp(request)
+  const rateLimit = checkRateLimit(`newsletter-send:${ip}`, 10, 60 * 60_000)
+  if (!rateLimit.allowed) {
+    return Response.json(
+      { success: false, error: 'Rate limit exceeded. Please try again later.' },
+      {
+        status: 429,
+        headers: { 'Retry-After': String(Math.ceil((rateLimit.resetAt - Date.now()) / 1000)) },
+      }
+    )
+  }
+
+  // ── Parse body ────────────────────────────────────────────────────────────
+  let body: { title?: string; excerpt?: string; slug?: string }
   try {
     body = (await request.json()) as {
       title?: string
@@ -77,9 +97,18 @@ export async function POST(request: NextRequest) {
 }
 
 // ─── GET /api/newsletter/send ─────────────────────────────────────────────────
-// Returns the current subscriber count (no auth required).
+// Returns the current subscriber count. Requires auth to prevent info leakage.
 
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const secret = process.env.NEWSLETTER_API_SECRET
+  if (secret) {
+    const authHeader = request.headers.get('authorization') ?? ''
+    const token = authHeader.replace(/^Bearer\s+/i, '').trim()
+    if (!token || token !== secret) {
+      return Response.json({ success: false, error: 'Unauthorized.' }, { status: 401 })
+    }
+  }
+
   const count = await getSubscriberCount()
   return Response.json({ success: true, count })
 }

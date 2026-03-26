@@ -54,6 +54,8 @@ export default function ContactPage() {
   const [errors, setErrors] = useState<Partial<Record<keyof EnquiryForm, string>>>({});
   const [submitting, setSubmitting] = useState(false);
   const [toast, setToast] = useState<Toast>(null);
+  // Honeypot field — must remain empty; bots typically fill all inputs
+  const [honeypot, setHoneypot] = useState('');
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -102,7 +104,7 @@ export default function ContactPage() {
     setToast(null);
 
     try {
-      const payload: EnquiryForm = {
+      const payload: EnquiryForm & { _hp?: string } = {
         role: form.role ?? 'teacher',
         name: form.name ?? '',
         schoolName: form.schoolName,
@@ -113,6 +115,8 @@ export default function ContactPage() {
         travelMonth: form.travelMonth ?? '',
         dietaryPreference: form.dietaryPreference ?? [],
         message: form.message ?? '',
+        // Honeypot — intentionally included; real users leave it blank
+        _hp: honeypot,
       };
 
       const res = await fetch('/api/enquiry', {
@@ -163,6 +167,20 @@ export default function ContactPage() {
             )}
 
             <form onSubmit={handleSubmit} noValidate className="space-y-5">
+              {/* Honeypot — hidden from real users; bots fill it automatically */}
+              <div aria-hidden="true" style={{ display: 'none' }}>
+                <label htmlFor="_hp">Leave this field empty</label>
+                <input
+                  id="_hp"
+                  name="_hp"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                />
+              </div>
+
               {/* Role */}
               <fieldset>
                 <legend className={labelClass}>I am a</legend>

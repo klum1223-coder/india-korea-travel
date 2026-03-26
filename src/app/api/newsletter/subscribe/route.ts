@@ -1,15 +1,30 @@
 import type { NextRequest } from 'next/server'
 import { addSubscriber, removeSubscriber } from '@/lib/newsletter/store'
+import { checkRateLimit, getClientIp } from '@/lib/security/rate-limiter'
+import { sanitizeEmail, isValidEmail } from '@/lib/security/sanitize'
 
 // ─── POST /api/newsletter/subscribe ──────────────────────────────────────────
-// Body: { email: string }
+// Body: { email: string; _hp?: string }
 // Subscribes an email address. Returns 200 even if already subscribed.
 
 export async function POST(request: NextRequest) {
-  let body: { email?: string }
+  // ── Rate limiting: 3 requests per minute per IP ───────────────────────────
+  const ip = getClientIp(request)
+  const rateLimit = checkRateLimit(`newsletter-subscribe:${ip}`, 3, 60_000)
+  if (!rateLimit.allowed) {
+    return Response.json(
+      { success: false, error: 'Too many requests. Please wait a moment and try again.' },
+      {
+        status: 429,
+        headers: { 'Retry-After': String(Math.ceil((rateLimit.resetAt - Date.now()) / 1000)) },
+      }
+    )
+  }
 
+  // ── Parse body ────────────────────────────────────────────────────────────
+  let body: { email?: string; _hp?: string }
   try {
-    body = (await request.json()) as { email?: string }
+    body = (await request.json()) as { email?: string; _hp?: string }
   } catch {
     return Response.json(
       { success: false, error: 'Invalid JSON body.' },
@@ -17,11 +32,25 @@ export async function POST(request: NextRequest) {
     )
   }
 
-  const email = body.email?.trim()
+  // ── Honeypot check ────────────────────────────────────────────────────────
+  if (body._hp && String(body._hp).trim() !== '') {
+    // Silently succeed to not reveal the bot check
+    return Response.json({ success: true, message: 'Thank you for subscribing!' })
+  }
 
-  if (!email) {
+  // ── Email validation ──────────────────────────────────────────────────────
+  const rawEmail = body.email?.trim()
+  if (!rawEmail) {
     return Response.json(
       { success: false, error: 'email is required.' },
+      { status: 400 }
+    )
+  }
+
+  const email = sanitizeEmail(rawEmail)
+  if (!isValidEmail(email)) {
+    return Response.json(
+      { success: false, error: 'Please enter a valid email address.' },
       { status: 400 }
     )
   }
@@ -45,7 +74,6 @@ export async function POST(request: NextRequest) {
 
 export async function DELETE(request: NextRequest) {
   let body: { email?: string }
-
   try {
     body = (await request.json()) as { email?: string }
   } catch {
@@ -55,11 +83,18 @@ export async function DELETE(request: NextRequest) {
     )
   }
 
-  const email = body.email?.trim()
-
-  if (!email) {
+  const rawEmail = body.email?.trim()
+  if (!rawEmail) {
     return Response.json(
       { success: false, error: 'email is required.' },
+      { status: 400 }
+    )
+  }
+
+  const email = sanitizeEmail(rawEmail)
+  if (!isValidEmail(email)) {
+    return Response.json(
+      { success: false, error: 'Please enter a valid email address.' },
       { status: 400 }
     )
   }
