@@ -1,12 +1,12 @@
 # India-Korea Travel 작업 보고서
 
-> 최종 업데이트: 2026-03-26
+> 최종 업데이트: 2026-03-28
 
 ---
 
 ## 1. 디자인 전면 개선
 
-### 시각 디자인 (UI Designer)
+### 1차 시각 디자인 (UI Designer) — 03/26 완료
 - [x] 히어로 섹션: 서울 야경 배경 이미지 + 도트 그리드 텍스처 + 장식 링 도형 + 순차 페이드인 애니메이션
 - [x] 색상 대비 WCAG AA 준수: `text-white/60` → `/80` 등 전체 조정
 - [x] 카드 호버 통일: `.card-hover` 클래스 (translateY -4px + scale 1.01 + shadow-lg)
@@ -16,6 +16,35 @@
 - [x] 통계 수치 색상: secondary → accent (CTA 버튼과 역할 분리)
 - [x] 버튼: focus-visible 링 강화, hover scale, outline-white 변형 추가
 - [x] 섹션 배경색 교번 리듬 조정
+
+### 2차 디자인 업그레이드 (활력 있는 비주얼) — 03/28 완료
+**CSS 시스템 강화:**
+- [x] 그라데이션 CSS 변수 3종 추가 (primary, secondary, accent)
+- [x] 신규 컬러: `--color-coral: #FF6B6B`, `--color-teal: #38B2AC`
+- [x] 멀티레이어 그림자 시스템 (shadow-md/lg/xl + glow-primary/secondary)
+- [x] 새 애니메이션 6종: slideInLeft/Right, scaleIn, shimmer, cardEntrance, gradientShift
+- [x] 스태거드 입장 유틸리티 `.animate-stagger-1`~`6` (100ms 간격)
+- [x] 그라데이션 텍스트 유틸리티 `.text-gradient` / `.text-gradient-secondary` / `.text-gradient-accent`
+- [x] 웨이브 섹션 디바이더 `.section-wave-top` / `.section-wave-bottom`
+- [x] 강화 카드 호버 `.card-hover-enhanced` (translateY -8px + 그라데이션 오버레이)
+- [x] 그라데이션 버튼 `.btn-gradient` + CTA 화살표 애니메이션
+- [x] 접근성: `@media (prefers-reduced-motion: reduce)` 전체 애니메이션 비활성화
+
+**컴포넌트 업그레이드 (17개 파일):**
+- [x] Hero: 애니메이션 그라데이션 오버레이 + "Educational Immersion" 골드 그라데이션 텍스트
+- [x] ValueProps: 이모지 → 인라인 SVG 아이콘 6종 + 카테고리별 좌측 컬러 보더
+- [x] StatsSection: 그라데이션 숫자 텍스트 + subtlePulse 애니메이션
+- [x] PackageShowcase: 3색 그라데이션 상단 바 + "Best Value" 뱃지 + 글로우 호버
+- [x] HowItWorks: 데스크톱 그라데이션 타임라인 연결선 + 그라데이션 번호 원
+- [x] ForSchoolsCTA: 그라데이션 배경 + 3개 플로팅 장식 요소
+- [x] SectionHeading: 그라데이션 제목 텍스트 + 장식 바 확대 (w-14, h-1.5)
+- [x] Button: `gradient` 변형 추가 (애니메이션 그라데이션 배경)
+- [x] Header: 스크롤 시 그라데이션 하단 보더 + 액티브 링크 그라데이션 배경
+- [x] Footer: `bg-gradient-to-br` 배경 + 슬라이딩 언더라인 호버 효과
+- [x] Experiences: 카테고리별 상단 컬러 보더 + 이미지 줌 호버 + 그라데이션 오버레이
+- [x] ExperienceHighlights: 이미지 줌 + 그라데이션 오버레이 호버
+- [x] Tag: 활성 상태 그라데이션 배경
+- [x] PackageCard: 그라데이션 헤더 + 향상된 호버 그림자
 
 ### 구조/반응형 (UX Architect)
 - [x] CSS 충돌 해결: `app/globals.css` 정리, `styles/globals.css`로 통합
@@ -34,13 +63,34 @@
 
 ## 2. 이미지 적용
 
+### 1차 이미지 (03/26)
 - [x] 히어로 배경: 서울 야경 스카이라인 (Unsplash 무료 라이선스)
 - [x] 블로그 썸네일 5개: 벚꽃, 시장/음식, 대학 건물, 경복궁, 홍대 네온거리
-- [x] 체험 카드 이미지 8개: 경복궁, 한복, DDP 건축, DDP 인테리어, 벚꽃 야경, 홍대, 서울 야경 등
 - [x] 패키지 카드 배경 4개: 감천문화마을, DDP, 한복 그룹, 제주 항공뷰
 - [x] PostCard / FeaturedPostCard에 next/image 적용
-- [x] 이미지-내용 매칭 2차 개선 (K-pop→홍대, KAIST→대학건물, 삼성→DDP 등)
 - [x] Gallery 페이지: placeholder 12개 → 실제 이미지 17장으로 교체
+
+### 2차 Experiences 전체 이미지 (03/26~28) — 40개 완성
+- [x] PDF 자료(info/)에서 실제 장소 사진 28개 추출 적용
+  - 경복궁 수문장교대, 서울대 정문, 이화여대 ECC, 연세대 캠퍼스
+  - 현대자동차 울산공장, 현대중공업 조선소, 고리원전, KARI 위성전시
+  - 로봇공학센터, 기아 소하리공장, 삼성이노베이션뮤지엄 전시관
+  - DMZ 도라전망대 + 제3터널, 송암성곡 천문대 돔
+  - 김치만들기 수업, 태권도, K-pop 댄스, 난타쇼, 페인터즈히어로
+  - DDP 야경, 북촌한옥마을, 인사동, 명동, N서울타워
+  - 해동용궁사, 감천문화마을, 오륙도스카이워크
+  - 에버랜드, 나미섬 메타세쿼이아길, KBS 드라마스튜디오
+  - 국회도서관 외관+내부
+- [x] 나머지 12개는 Pexels 무료 stock 사진 활용 (KMOU, 홍대, 청계천 등)
+- [x] 이미지 불일치 7건 검수 수정:
+  - KAIST: 경복궁 → 실제 KAIST 캠퍼스
+  - 삼성이노베이션뮤지엄: 무관 공장 → 실제 전시관 (Integrated Circuit)
+  - DMZ: 철조망 stock → 실제 도라전망대+제3터널
+  - 송암성곡: NASA 은하 → 실제 천문대 돔+망원경
+  - 나미섬: 야경 → 메타세쿼이아 가로수길
+  - 김밥만들기: 일반 한식 → 김밥 포함 사진
+  - 페인터즈히어로: 서양 화실 → 실제 공연 장면
+- [x] AI 블로그 기본 썸네일 누락 수정 (`default-thumbnail.jpg` → `korean-education.jpg`)
 
 ---
 
@@ -135,6 +185,27 @@
 
 ---
 
+## 9. 전체 점검 및 버그 수정 (03/28)
+
+- [x] Next.js 빌드 테스트: 에러 0건, 35개 페이지 정상 생성
+- [x] 이미지 참조 전수 검사: 40개 experience + 블로그/히어로 전체 정상
+- [x] API 라우트 5개 보안 검증 (인증, Rate Limit, CSRF, XSS 방지) 정상
+- [x] 타입/데이터 정합성: packages, experiences, blog-posts, destinations 확인
+- [x] Header/Footer 내비게이션 링크 전체 정상
+- [x] 누락 이미지 참조 1건 수정: `content-generator.ts` default-thumbnail.jpg
+
+---
+
+## 10. 개발 도구 (Claude Skills 설치)
+
+프로젝트 `.claude/skills/`에 4개 스킬 설치 (`.gitignore`에서 제외):
+- **frontend-design**: React/Tailwind 디자인 품질 향상, "AI 느낌" 배제
+- **web-artifacts-builder**: 복잡한 UI 컴포넌트 빌드 (React + shadcn/ui)
+- **canvas-design**: 포스터/시각 에셋 디자인
+- **webapp-testing**: Playwright UI 기능 테스트
+
+---
+
 ## 기술 스택
 
 | 항목 | 값 |
@@ -178,10 +249,10 @@
 
 | 페이지 | 완성도 | 비고 |
 |--------|--------|------|
-| `/` (홈) | 95% | 디자인, 이미지, 애니메이션 완료 |
-| `/packages` | 90% | 데이터 완전, 비교표 작동 |
+| `/` (홈) | 98% | 디자인 2차 업그레이드 완료, 그라데이션/애니메이션/SVG 아이콘 |
+| `/packages` | 95% | 카드 그라데이션 헤더, 입장 애니메이션, Best Value 뱃지 |
 | `/packages/[slug]` | 90% | 일정/가격/호텔 표시, Itinerary 버튼 연결 |
-| `/experiences` | 85% | 필터 작동, 이미지 fallback 처리 |
+| `/experiences` | 95% | 40개 이미지 완성, 카테고리 컬러 보더, 이미지 줌 호버 |
 | `/for-schools` | 85% | 다운로드 → Contact 연결 |
 | `/blog` | 90% | 필터, 썸네일, prose 스타일 완료 |
 | `/blog/[slug]` | 90% | 공유 버튼, 히어로 이미지, 본문 스타일 완료 |
