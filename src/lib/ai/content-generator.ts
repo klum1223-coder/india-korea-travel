@@ -209,7 +209,7 @@ export async function generateBlogPost(context: GenerationContext): Promise<Gene
     excerpt: parsed.excerpt,
     category: context.contentType,
     tags: Array.isArray(parsed.tags) ? parsed.tags : [],
-    thumbnail: '/images/blog/default-thumbnail.jpg',
+    thumbnail: '/images/blog/korean-education.jpg',
     publishedAt: now.toISOString(),
     readTime: estimateReadTime(parsed.body),
     relatedPackageSlug: parsed.relatedPackageSlug ?? context.relatedPackageSlug,
