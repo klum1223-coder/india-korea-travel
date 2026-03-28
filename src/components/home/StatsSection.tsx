@@ -24,7 +24,13 @@ export default function StatsSection() {
         <div className="relative grid grid-cols-2 md:grid-cols-4 gap-10">
           {stats.map((stat, i) => (
             <div key={stat.label} className="flex flex-col items-center text-center">
-              <span className="font-poppins text-4xl sm:text-5xl font-bold text-accent leading-none">
+              <span
+                className="font-poppins text-4xl sm:text-5xl font-bold leading-none gradient-text animate-subtle-pulse"
+                style={{
+                  backgroundImage: 'linear-gradient(135deg, #D4A843, #E8C76A, #F5D78E)',
+                  animationDelay: `${i * 200}ms`,
+                }}
+              >
                 {stat.value}
               </span>
               <span className="mt-2 text-sm sm:text-base text-white/85 font-medium">

@@ -38,7 +38,7 @@ export default function PackageCard({ pkg }: PackageCardProps) {
   const startingPrice = getStartingPrice(pkg);
 
   return (
-    <div className="relative flex flex-col bg-white rounded-2xl border border-surface shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden">
+    <div className="relative flex flex-col bg-white rounded-2xl border border-surface shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-primary/20 transition-all duration-300 overflow-hidden">
       {pkg.badge && (
         <div className="absolute top-4 right-4 z-10">
           <Badge variant={getBadgeVariant(pkg.badge)}>{pkg.badge}</Badge>
@@ -46,7 +46,7 @@ export default function PackageCard({ pkg }: PackageCardProps) {
       )}
 
       {/* Card header */}
-      <div className="bg-primary px-6 pt-6 pb-8">
+      <div className="bg-gradient-to-br from-primary to-[#2D5F8A] px-6 pt-6 pb-8">
         <h3 className="font-poppins text-xl font-bold text-white mb-1">
           {pkg.name ?? pkg.slug.replace(/-/g, " ").toUpperCase()}
         </h3>

@@ -82,8 +82,14 @@ export default function PackageShowcase() {
             return (
               <div
                 key={pkg.slug}
-                className="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-200 flex flex-col"
+                className="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-200 flex flex-col transition-all duration-300 hover:border-secondary/40 hover:shadow-[0_8px_30px_-4px_rgba(232,115,42,0.15)]"
               >
+                {/* Gradient accent bar at top */}
+                <div
+                  className="h-1"
+                  style={{ backgroundImage: 'linear-gradient(90deg, #E8732A, #D4A843, #38B2AC)' }}
+                  aria-hidden="true"
+                />
                 {/* Card header with gradient + optional background image */}
                 <div className="p-6 text-white relative overflow-hidden bg-gradient-to-br from-primary to-primary/85">
                   {imageUrl && (
@@ -105,6 +111,13 @@ export default function PackageShowcase() {
                   {pkg.badge && (
                     <div className="absolute top-4 right-4 z-20">
                       <Badge variant="default">{pkg.badge}</Badge>
+                    </div>
+                  )}
+                  {!pkg.badge && pkg.slug === '5n6d-seoul-busan' && (
+                    <div className="absolute top-4 right-4 z-20">
+                      <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-success text-white shadow-sm">
+                        Best Value
+                      </span>
                     </div>
                   )}
                   <div className="relative z-10">

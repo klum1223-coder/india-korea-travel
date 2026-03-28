@@ -21,9 +21,13 @@ const features = [
 
 export default function ForSchoolsCTA() {
   return (
-    <section className="py-20 bg-surface" aria-labelledby="for-schools-heading">
+    <section className="py-20 relative overflow-hidden" style={{ backgroundImage: 'linear-gradient(135deg, #F0EEEB 0%, #E8E4DF 50%, #F0EEEB 100%)' }} aria-labelledby="for-schools-heading">
+      {/* Floating decorative elements */}
+      <div className="absolute top-10 left-10 w-20 h-20 rounded-full bg-secondary/5 animate-float" style={{ animationDelay: '0s' }} aria-hidden="true" />
+      <div className="absolute bottom-16 right-16 w-16 h-16 rounded-full bg-accent/8 animate-float" style={{ animationDelay: '2s' }} aria-hidden="true" />
+      <div className="absolute top-1/2 left-[5%] w-12 h-12 rotate-45 bg-primary/5 animate-float" style={{ animationDelay: '4s' }} aria-hidden="true" />
       <Container>
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="relative max-w-3xl mx-auto text-center">
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-2 bg-secondary/10 border border-secondary/25 rounded-full px-4 py-1.5 mb-6">
             <span className="text-secondary text-sm font-semibold">For Educators</span>
@@ -61,7 +65,8 @@ export default function ForSchoolsCTA() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/for-schools"
-              className="inline-flex items-center justify-center font-semibold transition-all duration-200 bg-secondary text-white hover:bg-secondary/90 hover:scale-[1.03] shadow-md hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/60 focus-visible:ring-offset-2 px-7 py-3.5 text-base rounded-xl"
+              className="inline-flex items-center justify-center font-semibold transition-all duration-300 text-white hover:scale-[1.05] shadow-md hover:shadow-[0_0_24px_rgba(232,115,42,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/60 focus-visible:ring-offset-2 px-7 py-3.5 text-base rounded-xl"
+              style={{ backgroundImage: 'linear-gradient(135deg, #E8732A, #D4A843)' }}
             >
               Download Program Proposal
             </Link>

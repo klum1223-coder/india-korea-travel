@@ -63,11 +63,12 @@ export default function Header() {
 
       {/* Main nav */}
       <nav
-        className={`border-b border-gray-100 transition-colors duration-300 ${
+        className={`transition-all duration-300 ${
           scrolled
-            ? 'bg-white/98 backdrop-blur-md'
-            : 'bg-white/95 backdrop-blur-sm'
+            ? 'bg-white/98 backdrop-blur-md border-b-2 border-b-transparent'
+            : 'bg-white/95 backdrop-blur-sm border-b border-gray-100'
         }`}
+        style={scrolled ? { borderImage: 'linear-gradient(to right, #1B3A5C, #E8732A, #D4A843) 1' } : undefined}
         aria-label="Primary navigation"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -93,9 +94,9 @@ export default function Header() {
                     <Link
                       href={href}
                       aria-current={isActive ? 'page' : undefined}
-                      className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-150 ${
+                      className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                         isActive
-                          ? 'text-primary bg-primary/10 font-semibold'
+                          ? 'text-white bg-gradient-to-r from-primary to-[#2D5F8A] font-semibold shadow-sm'
                           : 'text-text-secondary hover:text-primary hover:bg-primary/5'
                       }`}
                     >

@@ -30,6 +30,14 @@ const categoryBadgeVariant: Record<ExperienceCategory, "default" | "success" | "
   sightseeing: "info",
 };
 
+const categoryTopBorderColor: Record<ExperienceCategory, string> = {
+  educational: "border-t-blue-500",
+  industrial: "border-t-orange-500",
+  cultural: "border-t-purple-500",
+  kwave: "border-t-pink-500",
+  sightseeing: "border-t-green-500",
+};
+
 const categoryLabel: Record<ExperienceCategory, string> = {
   educational: "Educational",
   industrial: "Industrial",
@@ -146,24 +154,27 @@ export default function ExperiencesPage() {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filtered.map((exp) => (
+              {filtered.map((exp, index) => (
                 <div
                   key={exp.id}
-                  className="bg-white rounded-2xl border border-surface shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col"
+                  className={`bg-white rounded-2xl border border-surface border-t-3 ${categoryTopBorderColor[exp.category]} shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col animate-card-entrance`}
+                  style={{ animationDelay: `${index * 60}ms` }}
                 >
                   {/* Card image */}
-                  <div className="relative w-full h-40 bg-surface overflow-hidden">
+                  <div className="group/img relative w-full h-40 bg-surface overflow-hidden">
                     <Image
                       src={exp.image}
                       alt={exp.name}
                       fill
-                      className="object-cover"
+                      className="object-cover transition-transform duration-500 group-hover/img:scale-110"
                       onError={(e) => {
                         const target = e.currentTarget as HTMLImageElement;
                         target.style.display = 'none';
                       }}
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
+                    {/* Gradient overlay on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-500" />
                   </div>
                   {/* Card header */}
                   <div className="p-6 flex-1 flex flex-col gap-3">

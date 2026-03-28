@@ -17,9 +17,14 @@ export default function HeroSection() {
         sizes="100vw"
       />
 
-      {/* Gradient overlay */}
+      {/* Animated gradient overlay */}
       <div
-        className="absolute inset-0 bg-gradient-to-b from-primary/85 via-primary/75 to-primary/90"
+        className="absolute inset-0 animate-gradient-shift"
+        style={{
+          backgroundImage:
+            'linear-gradient(135deg, rgba(27,58,92,0.9) 0%, rgba(45,95,138,0.8) 25%, rgba(27,58,92,0.85) 50%, rgba(45,95,138,0.8) 75%, rgba(27,58,92,0.9) 100%)',
+          backgroundSize: '200% 200%',
+        }}
         aria-hidden="true"
       />
 
@@ -68,7 +73,14 @@ export default function HeroSection() {
           className="font-poppins text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight max-w-5xl mx-auto mb-6 animate-fade-in-up"
           style={{ animationDelay: '60ms' }}
         >
-          Korea Educational Immersion Program{' '}
+          Korea{' '}
+          <span
+            className="gradient-text"
+            style={{ backgroundImage: 'linear-gradient(135deg, #D4A843, #E8C76A, #F5D78E)' }}
+          >
+            Educational Immersion
+          </span>{' '}
+          Program{' '}
           <span className="text-secondary">for Indian Students</span>
         </h1>
 
@@ -87,7 +99,7 @@ export default function HeroSection() {
         >
           <Link
             href="/packages"
-            className="inline-flex items-center justify-center font-semibold transition-all duration-200 bg-secondary text-white hover:bg-secondary/90 active:bg-secondary/80 shadow-lg hover:shadow-xl hover:scale-[1.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-secondary/70 focus-visible:ring-offset-primary px-7 py-3.5 text-lg rounded-xl"
+            className="inline-flex items-center justify-center font-semibold transition-all duration-300 text-white shadow-lg hover:shadow-xl hover:scale-[1.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-secondary/70 focus-visible:ring-offset-primary px-7 py-3.5 text-lg rounded-xl [background-image:linear-gradient(135deg,#E8732A,#D4A843)] [background-size:200%_200%] [background-position:0%_0%] hover:[background-position:100%_100%]"
           >
             Explore Packages
           </Link>

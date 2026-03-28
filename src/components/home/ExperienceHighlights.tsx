@@ -80,7 +80,7 @@ export default function ExperienceHighlights() {
               <div
                 key={exp.id}
                 role="listitem"
-                className="card-hover bg-white rounded-2xl shadow-sm border border-gray-200 flex flex-col w-64 shrink-0"
+                className="card-hover group bg-white rounded-2xl shadow-sm border border-gray-200 hover:border-primary/20 hover:shadow-lg flex flex-col w-64 shrink-0 transition-all duration-300"
               >
                 {/* Experience image */}
                 {imageUrl && (
@@ -89,9 +89,11 @@ export default function ExperienceHighlights() {
                       src={imageUrl}
                       alt={exp.name}
                       fill
-                      className="object-cover"
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
                       sizes="256px"
                     />
+                    {/* Gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
                 )}
 

@@ -116,7 +116,7 @@ function NewsletterForm() {
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-white">
+    <footer className="bg-gradient-to-br from-primary via-primary to-[#142D47] text-white">
       {/* Newsletter row */}
       <div className="border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -180,7 +180,7 @@ export default function Footer() {
                 <li key={href}>
                   <Link
                     href={href}
-                    className="text-white/65 hover:text-white text-sm transition-colors"
+                    className="footer-link-hover text-white/65 hover:text-white text-sm transition-colors"
                   >
                     {label}
                   </Link>
@@ -197,7 +197,7 @@ export default function Footer() {
                 <li key={href}>
                   <Link
                     href={href}
-                    className="text-white/65 hover:text-white text-sm transition-colors"
+                    className="footer-link-hover text-white/65 hover:text-white text-sm transition-colors"
                   >
                     {label}
                   </Link>
@@ -259,11 +259,11 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-white/50">
             <p>&copy; 2026 Discover Korea. All rights reserved.</p>
             <div className="flex items-center gap-4">
-              <Link href="/privacy-policy" className="hover:text-white transition-colors">
+              <Link href="/privacy-policy" className="footer-link-hover hover:text-white transition-colors">
                 Privacy Policy
               </Link>
               <span aria-hidden="true">|</span>
-              <Link href="/terms" className="hover:text-white transition-colors">
+              <Link href="/terms" className="footer-link-hover hover:text-white transition-colors">
                 Terms of Service
               </Link>
             </div>

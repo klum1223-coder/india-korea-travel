@@ -53,8 +53,10 @@ export default function PackagesPage() {
             subtitle="Explore our curated educational journeys in detail"
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {packages.map((pkg) => (
-              <PackageCard key={pkg.slug} pkg={pkg} />
+            {packages.map((pkg, index) => (
+              <div key={pkg.slug} className="animate-card-entrance" style={{ animationDelay: `${index * 100}ms` }}>
+                <PackageCard pkg={pkg} />
+              </div>
             ))}
           </div>
         </Container>

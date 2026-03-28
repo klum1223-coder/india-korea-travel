@@ -24,7 +24,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="py-20 bg-background" aria-labelledby="how-it-works-heading">
+    <section className="py-20 bg-background relative" aria-labelledby="how-it-works-heading">
       <Container>
         <SectionHeading
           id="how-it-works-heading"
@@ -33,14 +33,18 @@ export default function HowItWorks() {
           align="center"
         />
 
+        {/* Connecting timeline line (desktop only) */}
+        <div className="hidden md:block absolute top-[4.5rem] left-[16.67%] right-[16.67%] h-0.5 bg-gradient-to-r from-secondary/20 via-accent/30 to-secondary/20 z-0" aria-hidden="true" />
+
         <ol className="relative flex flex-col md:flex-row items-stretch gap-0">
           {steps.map((step, index) => (
             <li key={step.number} className="flex flex-col md:flex-row flex-1 items-start">
               {/* Step card */}
-              <div className="flex flex-col items-center text-center flex-1 px-6">
-                {/* Number circle */}
+              <div className="flex flex-col items-center text-center flex-1 px-6 transition-transform duration-300 hover:scale-[1.04]">
+                {/* Number circle with gradient */}
                 <div
-                  className="w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center font-poppins text-2xl font-bold shadow-lg mb-4 shrink-0"
+                  className="relative z-10 w-16 h-16 rounded-full text-white flex items-center justify-center font-poppins text-2xl font-bold shadow-lg mb-4 shrink-0"
+                  style={{ backgroundImage: 'linear-gradient(135deg, #1B3A5C, #2D5F8A)' }}
                   aria-hidden="true"
                 >
                   {step.number}

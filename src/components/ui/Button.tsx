@@ -1,7 +1,7 @@
 import { clsx } from "@/lib/cn";
 import React from "react";
 
-type ButtonVariant = "primary" | "outline" | "ghost" | "outline-white";
+type ButtonVariant = "primary" | "outline" | "ghost" | "outline-white" | "gradient";
 type ButtonSize = "sm" | "md" | "lg";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -21,6 +21,8 @@ const variantClasses: Record<ButtonVariant, string> = {
     "border-2 border-white text-white bg-transparent hover:bg-white hover:text-primary focus-visible:ring-white/60",
   ghost:
     "bg-transparent text-primary hover:bg-primary/10 active:bg-primary/20 focus-visible:ring-primary/40",
+  gradient:
+    "text-white shadow-md hover:shadow-lg hover:scale-[1.04] focus-visible:ring-secondary/70 [background-image:linear-gradient(135deg,#E8732A,#D4A843)] [background-size:200%_200%] [background-position:0%_0%] hover:[background-position:100%_100%] transition-all duration-300",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
